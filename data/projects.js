@@ -187,12 +187,6 @@ export const techs = [
     group: "backend",
   },
   {
-    name: "NestJS",
-    logo: "/svg/nestjs.svg",
-    path: "https://nestjs.com/",
-    group: "backend",
-  },
-  {
     name: "Prisma",
     logo: "/svg/prisma.svg",
     path: "https://www.prisma.io/",
