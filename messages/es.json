@@ -71,6 +71,8 @@
   },
   "projects": {
     "title": "Otros proyectos",
+    "subtitle": "Más trabajo filtrable por stack.",
+    "filterAll": "Todos",
     "demo": "Ver demo",
     "code": "Ver código",
     "openGallery": "Abrir galería",
@@ -110,14 +112,7 @@
       },
       "liquidacion": {
         "name": "Panel de liquidación",
-        "desc": "Sistema interno de liquidación desarrollado en DigiChanges.",
-        "problem": "Un proceso interno de liquidación que necesitaba una UI clara para operar sin fricción.",
-        "whatIDid": "Construí el panel de liquidación en React/Next con flujos orientados a operadores y revisión visual de estados.",
-        "decisions": [
-          "Next.js + Tailwind para velocidad de entrega en un producto interno.",
-          "UI enfocada en tablas y estados legibles para operadores.",
-          "Galería de capturas porque el producto no es público."
-        ]
+        "desc": "Sistema interno de liquidación desarrollado en DigiChanges."
       },
       "infinity": {
         "name": "Infinity",
@@ -137,7 +132,14 @@
       },
       "dashboard-landing": {
         "name": "Dashboard Landing",
-        "desc": "Demo de dashboard de gestión de órdenes. Deploy en Vercel."
+        "desc": "Demo de dashboard de gestión de órdenes. Deploy en Vercel.",
+        "problem": "Mostrar un dashboard de órdenes con UI moderna, motion y estado compartido sin backend real.",
+        "whatIDid": "Armé una landing-demo interactiva de dashboard en Next.js con componentes HeroUI, motion y estado en Zustand, desplegada en Vercel.",
+        "decisions": [
+          "HeroUI + Tailwind para un sistema de componentes consistente y rápido de componer.",
+          "Framer Motion para microinteracciones y transiciones de paneles sin saturar la demo.",
+          "Zustand para estado de UI/demo liviano; deploy en Vercel para iterar en público."
+        ]
       },
       "tour-landing": {
         "name": "Tour Landing Page",

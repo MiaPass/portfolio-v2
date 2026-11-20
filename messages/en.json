@@ -71,6 +71,8 @@
   },
   "projects": {
     "title": "Other projects",
+    "subtitle": "More work, filterable by stack.",
+    "filterAll": "All",
     "demo": "View demo",
     "code": "View code",
     "openGallery": "Open gallery",
@@ -110,14 +112,7 @@
       },
       "liquidacion": {
         "name": "Settlement panel",
-        "desc": "Internal settlement system built at DigiChanges.",
-        "problem": "An internal settlement process needed a clear UI operators could run without friction.",
-        "whatIDid": "Built the settlement panel in React/Next with operator-first flows and readable status review.",
-        "decisions": [
-          "Next.js + Tailwind for delivery speed on an internal product.",
-          "UI focused on tables and legible states for operators.",
-          "Screenshot gallery because the product is not public."
-        ]
+        "desc": "Internal settlement system built at DigiChanges."
       },
       "infinity": {
         "name": "Infinity",
@@ -137,7 +132,14 @@
       },
       "dashboard-landing": {
         "name": "Dashboard Landing",
-        "desc": "Interactive order dashboard demo. Deployed on Vercel."
+        "desc": "Interactive order dashboard demo. Deployed on Vercel.",
+        "problem": "Show a modern order dashboard demo with motion and shared UI state — no real backend required.",
+        "whatIDid": "Built an interactive dashboard landing in Next.js with HeroUI components, Framer Motion, and Zustand, deployed on Vercel.",
+        "decisions": [
+          "HeroUI + Tailwind for a consistent, fast-to-compose component system.",
+          "Framer Motion for panel micro-interactions without overloading the demo.",
+          "Zustand for lightweight demo/UI state; Vercel deploy to iterate in public."
+        ]
       },
       "tour-landing": {
         "name": "Tour Landing Page",

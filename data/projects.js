@@ -1,6 +1,8 @@
 /** Demo URL for Pulso — change here to update Hero CTA and featured case. */
 export const pulsoDemoUrl = "https://web-steel-five-33.vercel.app";
 
+export const projectFilterTags = ["React", "Vue/Nuxt", "Next", "Landing"];
+
 export const projects = [
   {
     id: "pulso",
@@ -26,8 +28,28 @@ export const projects = [
     media: { type: "image", src: "/projects/reapersquad-accounts/cover.png" },
   },
   {
-    id: "liquidacion",
+    id: "dashboard-landing",
     featured: true,
+    tags: ["Next", "Landing", "React"],
+    techs: "Next.js, Tailwind CSS, HeroUI, Framer Motion, Zustand, Vercel",
+    mode: "link",
+    href: "https://dashboard-landing-demo.vercel.app/",
+    demoUrl: "https://dashboard-landing-demo.vercel.app/",
+    external: true,
+    media: { type: "image", src: "/projects/dashboard-demo/image.png" },
+  },
+  // Other projects — ReaperSquad site first
+  {
+    id: "reapersquad",
+    tags: ["Next", "Landing"],
+    techs: "Next.js, React, Tailwind CSS, Docker, Coolify",
+    mode: "link",
+    href: "https://www.reapersquad.online/en",
+    external: true,
+    media: { type: "image", src: "/projects/reapersquad/cover.png" },
+  },
+  {
+    id: "liquidacion",
     tags: ["Next", "React"],
     techs: "React, Next.js, Tailwind CSS",
     mode: "gallery",
@@ -38,15 +60,6 @@ export const projects = [
       "/projects/liquidacion/2.png",
       "/projects/liquidacion/3.png",
     ],
-  },
-  {
-    id: "reapersquad",
-    tags: ["Next", "Landing"],
-    techs: "Next.js, React, Tailwind CSS, Docker, Coolify",
-    mode: "link",
-    href: "https://www.reapersquad.online/en",
-    external: true,
-    media: { type: "image", src: "/projects/reapersquad/cover.png" },
   },
   {
     id: "x28",
@@ -91,15 +104,6 @@ export const projects = [
     href: "https://construction-site-liard.vercel.app/",
     external: true,
     media: { type: "image", src: "/projects/construction-site/image.png" },
-  },
-  {
-    id: "dashboard-landing",
-    tags: ["Next", "Landing", "React"],
-    techs: "Next.js, Tailwind CSS, HeroUI, Framer Motion, Zustand, Vercel",
-    mode: "link",
-    href: "https://dashboard-landing-demo.vercel.app/",
-    external: true,
-    media: { type: "image", src: "/projects/dashboard-demo/image.png" },
   },
   {
     id: "tour-landing",
