@@ -1,0 +1,119 @@
+{
+  "meta": {
+    "title": "Mia Passalia | Fullstack Developer",
+    "description": "Portfolio of Mia Passalia, fullstack developer from Argentina."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "tech": "Tech",
+    "experience": "Experience",
+    "projects": "Projects",
+    "toggleMenu": "Toggle menu",
+    "language": "Language"
+  },
+  "welcome": {
+    "role": "Fullstack Developer",
+    "meet": "About me",
+    "viewProjects": "View projects"
+  },
+  "about": {
+    "title": "About me",
+    "p1Before": "My name is",
+    "p1After": ". I am {age} and from Argentina. In 2021 I changed path and started studying software development.",
+    "p2": "I am creative and curious, with flexibility and initiative to learn new tools. I keep learning and growing as a developer with every project.",
+    "frontend": "Front-end",
+    "backend": "Back-end",
+    "frontendSkills": [
+      "Responsive sites with React or Solid.",
+      "Image work in Photoshop and Illustrator with optimized exports.",
+      "CSS and SASS; comfortable with Bootstrap and Tailwind.",
+      "HTTP data with fetch or axios."
+    ],
+    "backendSkills": [
+      "REST APIs with Express.",
+      "Relational and non-relational databases (MySQL, MongoDB…).",
+      "Data model design.",
+      "npm modules based on project needs."
+    ]
+  },
+  "tech": {
+    "title": "Tech skills",
+    "subtitle": "Tools I use most often."
+  },
+  "experience": {
+    "title": "Experience",
+    "items": {
+      "freelancer": {
+        "title": "Freelancer",
+        "date": "Jan 2023 — Present",
+        "desc": "Freelance landings and interactive web apps. Some of that work is in Projects.",
+        "techs": "HTML, CSS, React, Redux, Swiper, Node.js, Mercado Pago, Firebase"
+      },
+      "digichanges": {
+        "title": "DigiChanges",
+        "date": "Aug 2024 — May 2025",
+        "desc": "Front-end in a team: client features with a focus on clear, efficient UX.",
+        "techs": "HTML, CSS, Tailwind, Next.js, React, Vue, Nuxt, Astro, Solid, Node.js"
+      }
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "openGallery": "Open gallery",
+    "closeGallery": "Close gallery",
+    "prevImage": "Previous image",
+    "nextImage": "Next image",
+    "items": {
+      "reapersquad-accounts": {
+        "name": "Accounts panel",
+        "desc": "Accounts panel for ReaperSquad: auth and user management. Deployed on Coolify with Docker."
+      },
+      "reapersquad": {
+        "name": "ReaperSquad",
+        "desc": "Company site for ReaperSquad. Deployed on Coolify with Docker."
+      },
+      "x28": {
+        "name": "x28",
+        "desc": "Monitored alarms site built at DigiChanges with Vue and Nuxt."
+      },
+      "liquidacion": {
+        "name": "Settlement panel",
+        "desc": "Internal settlement system built at DigiChanges."
+      },
+      "infinity": {
+        "name": "Infinity",
+        "desc": "Interactive project with carousels and state management."
+      },
+      "share-it": {
+        "name": "Share It",
+        "desc": "Content-sharing app with integrated payments."
+      },
+      "l2-rossek": {
+        "name": "L2 Rossek",
+        "desc": "Landing page for a game server."
+      },
+      "construction-site": {
+        "name": "Construction Site",
+        "desc": "Construction site with multiple sections. Deployed on Vercel."
+      },
+      "dashboard-landing": {
+        "name": "Dashboard Landing",
+        "desc": "Interactive order dashboard demo. Deployed on Vercel."
+      },
+      "tour-landing": {
+        "name": "Tour Landing Page",
+        "desc": "Tourism landing with gallery and contact form. Deployed on Netlify."
+      }
+    }
+  },
+  "contact": {
+    "title": "Let’s work together",
+    "subtitle": "Reach me on LinkedIn or see my work on GitHub.",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  },
+  "footer": {
+    "copy": "Ianina Mia Passalia"
+  }
+}

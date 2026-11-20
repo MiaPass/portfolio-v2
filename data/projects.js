@@ -1,0 +1,150 @@
+export const projects = [
+  {
+    id: "reapersquad-accounts",
+    techs: "Next.js, React, Tailwind CSS, Zustand, Docker, Coolify",
+    mode: "link",
+    href: "https://accounts.reapersquad.online/",
+    external: true,
+    media: { type: "image", src: "/projects/reapersquad-accounts/cover.png" },
+  },
+  {
+    id: "reapersquad",
+    techs: "Next.js, React, Tailwind CSS, Docker, Coolify",
+    mode: "link",
+    href: "https://www.reapersquad.online/en",
+    external: true,
+    media: { type: "image", src: "/projects/reapersquad/cover.png" },
+  },
+  {
+    id: "x28",
+    techs: "Vue.js, Nuxt.js",
+    mode: "link",
+    href: "https://x-28.com/",
+    external: true,
+    media: { type: "image", src: "/projects/x28/cover.png" },
+  },
+  {
+    id: "liquidacion",
+    techs: "React, Next.js, Tailwind CSS",
+    mode: "gallery",
+    media: { type: "image", src: "/projects/liquidacion/cover.png" },
+    gallery: [
+      "/projects/liquidacion/cover.png",
+      "/projects/liquidacion/1.png",
+      "/projects/liquidacion/2.png",
+      "/projects/liquidacion/3.png",
+    ],
+  },
+  {
+    id: "infinity",
+    techs: "React, Redux, CSS, Swiper",
+    mode: "link",
+    href: "#projects",
+    media: { type: "video", src: "/projects/infinity/infinity.mp4" },
+  },
+  {
+    id: "share-it",
+    techs: "ReactJs, NodeJs, Mercado Pago, Firebase",
+    mode: "link",
+    href: "https://github.com/henry19ag15/finalproject",
+    external: true,
+    media: { type: "image", src: "/projects/share-it/1.png" },
+  },
+  {
+    id: "l2-rossek",
+    techs: "HTML, CSS",
+    mode: "link",
+    href: "https://l2rossek.com/donate/index.html",
+    external: true,
+    media: { type: "video", src: "/projects/L2Rossek/l2rossek.mp4" },
+  },
+  {
+    id: "construction-site",
+    techs: "Next.js, Tailwind CSS, Headless UI, Heroicons, Vercel",
+    mode: "link",
+    href: "https://construction-site-liard.vercel.app/",
+    external: true,
+    media: { type: "image", src: "/projects/construction-site/image.png" },
+  },
+  {
+    id: "dashboard-landing",
+    techs: "Next.js, Tailwind CSS, HeroUI, Framer Motion, Zustand, Vercel",
+    mode: "link",
+    href: "https://dashboard-landing-demo.vercel.app/",
+    external: true,
+    media: { type: "image", src: "/projects/dashboard-demo/image.png" },
+  },
+  {
+    id: "tour-landing",
+    techs: "HTML, CSS, JavaScript, Webpack, Netlify",
+    mode: "link",
+    href: "https://tour-landing-page.netlify.app/",
+    external: true,
+    media: { type: "image", src: "/projects/tour-site/image.png" },
+  },
+];
+
+export const techs = [
+  { name: "Git", logo: "/svg/git.svg", path: "https://git-scm.com/" },
+  { name: "Node.js", logo: "/svg/nodejs.svg", path: "https://nodejs.org/" },
+  {
+    name: "JavaScript",
+    logo: "/svg/javascript.svg",
+    path: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+  },
+  {
+    name: "TypeScript",
+    logo: "/svg/typescript.svg",
+    path: "https://www.typescriptlang.org/",
+  },
+  { name: "Redux", logo: "/svg/redux.svg", path: "https://redux.js.org/" },
+  {
+    name: "Firebase",
+    logo: "/svg/firebase.svg",
+    path: "https://firebase.google.com/",
+  },
+  {
+    name: "CSS",
+    logo: "/svg/css.svg",
+    path: "https://developer.mozilla.org/en-US/docs/Web/CSS",
+  },
+  {
+    name: "TailwindCSS",
+    logo: "/svg/tailwindcss.svg",
+    path: "https://tailwindcss.com/",
+  },
+  {
+    name: "HTML",
+    logo: "/svg/html.svg",
+    path: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+  },
+  { name: "React", logo: "/svg/react.svg", path: "https://reactjs.org/" },
+  { name: "Next.js", logo: "/svg/nextjs.svg", path: "https://nextjs.org/" },
+  { name: "Vue.js", logo: "/svg/vuejs.svg", path: "https://vuejs.org/" },
+  { name: "Nuxt.js", logo: "/svg/nuxtjs.svg", path: "https://nuxtjs.org/" },
+  { name: "Solid.js", logo: "/svg/solidjs.svg", path: "https://solidjs.com/" },
+  { name: "Astro", logo: "/svg/astro.svg", path: "https://astro.build/" },
+  { name: "Express", logo: "/svg/express.svg", path: "https://expressjs.com/" },
+  {
+    name: "MongoDB",
+    logo: "/svg/mongodb.svg",
+    path: "https://www.mongodb.com/",
+  },
+  {
+    name: "PostgreSQL",
+    logo: "/svg/postgresql.svg",
+    path: "https://www.postgresql.org/",
+  },
+];
+
+export const experienceIds = [
+  {
+    id: "freelancer",
+    href: "#projects",
+  },
+  {
+    id: "digichanges",
+    href: "https://digichanges.com/es/",
+    external: true,
+  },
+];
