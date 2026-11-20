@@ -194,10 +194,14 @@ export default function Hero() {
       className="relative isolate min-h-[calc(100vh-4rem)] overflow-hidden"
     >
       <div
-        className="absolute inset-0 -z-20 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 -z-20 bg-cover bg-center bg-no-repeat opacity-30"
         style={{ backgroundImage: "url('/bg.png')" }}
+        aria-hidden="true"
       />
-      <div className="absolute inset-0 -z-10 bg-linear-to-br from-background via-background/90 to-background/70" />
+      <div
+        className="absolute inset-0 -z-10 bg-linear-to-br from-background via-background/95 to-background/80"
+        aria-hidden="true"
+      />
 
       <div
         ref={glowRef}
@@ -214,12 +218,16 @@ export default function Hero() {
       />
 
       <div className="mx-auto flex min-h-[calc(100vh-4rem)] max-w-7xl flex-col items-center justify-center gap-8 px-6 py-12 md:flex-row md:items-center md:justify-between md:gap-10 md:py-16 lg:px-8">
-        <div className="max-w-xl text-center md:text-left">
+        <div className="relative max-w-xl text-center md:text-left">
+          <div
+            className="pointer-events-none absolute -inset-x-6 -inset-y-8 -z-10 rounded-3xl bg-background/75 blur-2xl md:-inset-x-10 md:-inset-y-10"
+            aria-hidden="true"
+          />
           {profile.available ? (
             <p className="hero-badge hero-fade mb-4 inline-flex items-center gap-2 rounded-full border border-border/80 bg-card/60 px-3 py-1.5 text-sm text-muted-foreground backdrop-blur-sm">
               <span className="hero-available-dot relative flex h-2 w-2" aria-hidden="true">
-                <span className="hero-available-dot-ping absolute inset-0 rounded-full bg-primary" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+                <span className="hero-available-dot-ping absolute inset-0 rounded-full bg-success" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-success" />
               </span>
               {t("available")}
             </p>
@@ -232,7 +240,7 @@ export default function Hero() {
             {t("headline")}
           </h1>
 
-          <p className="hero-subtitle hero-fade mt-4 text-base text-muted-foreground sm:text-lg">
+          <p className="hero-subtitle hero-fade mt-4 text-base text-foreground/80 sm:text-lg">
             {t("subtitle")}
           </p>
 

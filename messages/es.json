@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Mia Passalia | Desarrolladora Frontend",
-    "description": "Portafolio de Mia Passalia, desarrolladora frontend con base fullstack en Node/NestJS."
+    "description": "Portafolio de Mia Passalia, desarrolladora frontend con base fullstack en Node/Express."
   },
   "nav": {
     "home": "Inicio",
@@ -14,7 +14,7 @@
   },
   "welcome": {
     "headline": "Construyo interfaces rápidas, accesibles y que funcionan sin conexión.",
-    "subtitle": "Desarrolladora Frontend con base en Node y NestJS. Vue, Nuxt, React y Next.",
+    "subtitle": "Desarrolladora Frontend con base en Node y Express. Vue, Nuxt, React y Next.",
     "available": "Disponible para trabajar",
     "viewProjects": "Ver proyectos",
     "tryPulso": "Probar Pulso"

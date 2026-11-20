@@ -23,7 +23,7 @@ Dark **Tangerine**-inspired theme (palette only; no shadcn/ui).
 
 ## Identity
 
-- Primary role site-wide: **Frontend Developer** / **Desarrolladora Frontend** (fullstack base: Node / NestJS).
+- Primary role site-wide: **Frontend Developer** / **Desarrolladora Frontend** (fullstack base: Node / Express). NestJS only in Pulso stack.
 - Do not alternate with “Fullstack” as the headline role.
 - Name and contact live in `data/profile.js` + i18n; no hardcoded UI copy in components.
 
