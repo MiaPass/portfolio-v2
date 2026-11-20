@@ -22,10 +22,11 @@ export default function Footer() {
 
   const links = [
     { name: t("nav.home"), href: "#welcome" },
-    { name: t("nav.about"), href: "#about-me" },
-    { name: t("nav.tech"), href: "#technologies" },
+    { name: t("nav.featured"), href: "#featured" },
+    { name: t("nav.projects"), href: "#projects" },
+    { name: t("nav.about"), href: "#about" },
     { name: t("nav.experience"), href: "#experience" },
-    { name: t("nav.projects"), href: "#featured" },
+    { name: t("nav.tech"), href: "#stack" },
   ];
 
   return (

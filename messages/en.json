@@ -6,9 +6,10 @@
   "nav": {
     "home": "Home",
     "about": "About",
-    "tech": "Tech",
+    "tech": "Stack",
     "experience": "Experience",
     "projects": "Projects",
+    "featured": "Featured",
     "toggleMenu": "Toggle menu",
     "language": "Language"
   },
@@ -30,42 +31,33 @@
   },
   "about": {
     "title": "About me",
-    "p1Before": "My name is",
-    "p1After": ". I am {age} and from Argentina. In 2021 I changed path and started studying software development.",
-    "p2": "I am creative and curious, with flexibility and initiative to learn new tools. I keep learning and growing as a developer with every project.",
-    "frontend": "Front-end",
-    "backend": "Back-end",
-    "frontendSkills": [
-      "Responsive sites with React or Solid.",
-      "Image work in Photoshop and Illustrator with optimized exports.",
-      "CSS and SASS; comfortable with Bootstrap and Tailwind.",
-      "HTTP data with fetch or axios."
-    ],
-    "backendSkills": [
-      "REST APIs with Express.",
-      "Relational and non-relational databases (MySQL, MongoDB…).",
-      "Data model design.",
-      "npm modules based on project needs."
-    ]
+    "line1": "I'm {name}, {age}, from Argentina. Since 2021 I've shipped web products with a frontend focus.",
+    "line2": "I build interfaces in React, Next, Vue and Nuxt, with a Node/Express base when the product needs it.",
+    "line3": "I care about fast, accessible apps that stay usable offline — Pulso is the latest example."
   },
   "tech": {
-    "title": "Tech skills",
-    "subtitle": "Tools I use most often."
+    "title": "Stack",
+    "subtitle": "Tools I use to ship product, grouped by layer.",
+    "groups": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "tools": "Tools"
+    }
   },
   "experience": {
     "title": "Experience",
     "items": {
-      "freelancer": {
-        "title": "Freelancer",
-        "date": "Jan 2023 — Present",
-        "desc": "Freelance landings and interactive web apps. Some of that work is in Projects.",
-        "techs": "HTML, CSS, React, Redux, Swiper, Node.js, Mercado Pago, Firebase"
-      },
       "digichanges": {
         "title": "DigiChanges",
         "date": "Aug 2024 — May 2025",
-        "desc": "Front-end in a team: client features with a focus on clear, efficient UX.",
-        "techs": "HTML, CSS, Tailwind, Next.js, React, Vue, Nuxt, Astro, Solid, Node.js"
+        "desc": "Frontend in a team: client panels and sites with clear UX (Vue/Nuxt, Next/React).",
+        "techs": "Next.js, React, Vue, Nuxt, Tailwind, Node.js"
+      },
+      "freelancer": {
+        "title": "Freelance",
+        "date": "Jan 2023 — Present",
+        "desc": "End-to-end landings and interactive web apps. Some of that work is in Projects.",
+        "techs": "React, Next.js, Node.js, Firebase, Tailwind"
       }
     }
   },

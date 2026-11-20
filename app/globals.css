@@ -187,6 +187,20 @@ h3,
   opacity: var(--tilt-glare-opacity);
 }
 
+/* Stack marquee */
+@keyframes stack-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.stack-marquee-track {
+  animation: stack-marquee 36s linear infinite;
+}
+
 /* Hero available badge pulse */
 @keyframes hero-dot-ping {
   0% {
@@ -230,5 +244,14 @@ h3,
 
   .t-tilt-glare {
     display: none !important;
+  }
+
+  .stack-marquee-track {
+    animation: none;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    max-width: 72rem;
+    margin-inline: auto;
   }
 }

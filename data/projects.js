@@ -126,66 +126,145 @@ export const featuredProjects = projects.filter((project) => project.featured);
 export const otherProjects = projects.filter((project) => !project.featured);
 
 export const techs = [
-  { name: "Git", logo: "/svg/git.svg", path: "https://git-scm.com/" },
-  { name: "Node.js", logo: "/svg/nodejs.svg", path: "https://nodejs.org/" },
   {
-    name: "JavaScript",
-    logo: "/svg/javascript.svg",
-    path: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    name: "React",
+    logo: "/svg/react.svg",
+    path: "https://reactjs.org/",
+    group: "frontend",
+  },
+  {
+    name: "Next.js",
+    logo: "/svg/nextjs.svg",
+    path: "https://nextjs.org/",
+    group: "frontend",
+  },
+  {
+    name: "Vue.js",
+    logo: "/svg/vuejs.svg",
+    path: "https://vuejs.org/",
+    group: "frontend",
+  },
+  {
+    name: "Nuxt.js",
+    logo: "/svg/nuxtjs.svg",
+    path: "https://nuxtjs.org/",
+    group: "frontend",
   },
   {
     name: "TypeScript",
     logo: "/svg/typescript.svg",
     path: "https://www.typescriptlang.org/",
-  },
-  { name: "Redux", logo: "/svg/redux.svg", path: "https://redux.js.org/" },
-  {
-    name: "Firebase",
-    logo: "/svg/firebase.svg",
-    path: "https://firebase.google.com/",
+    group: "frontend",
   },
   {
-    name: "CSS",
-    logo: "/svg/css.svg",
-    path: "https://developer.mozilla.org/en-US/docs/Web/CSS",
+    name: "JavaScript",
+    logo: "/svg/javascript.svg",
+    path: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    group: "frontend",
   },
   {
     name: "TailwindCSS",
     logo: "/svg/tailwindcss.svg",
     path: "https://tailwindcss.com/",
+    group: "frontend",
   },
   {
-    name: "HTML",
-    logo: "/svg/html.svg",
-    path: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+    name: "PWA",
+    logo: "/svg/pwa.svg",
+    path: "https://web.dev/progressive-web-apps/",
+    group: "frontend",
   },
-  { name: "React", logo: "/svg/react.svg", path: "https://reactjs.org/" },
-  { name: "Next.js", logo: "/svg/nextjs.svg", path: "https://nextjs.org/" },
-  { name: "Vue.js", logo: "/svg/vuejs.svg", path: "https://vuejs.org/" },
-  { name: "Nuxt.js", logo: "/svg/nuxtjs.svg", path: "https://nuxtjs.org/" },
-  { name: "Solid.js", logo: "/svg/solidjs.svg", path: "https://solidjs.com/" },
-  { name: "Astro", logo: "/svg/astro.svg", path: "https://astro.build/" },
-  { name: "Express", logo: "/svg/express.svg", path: "https://expressjs.com/" },
   {
-    name: "MongoDB",
-    logo: "/svg/mongodb.svg",
-    path: "https://www.mongodb.com/",
+    name: "Node.js",
+    logo: "/svg/nodejs.svg",
+    path: "https://nodejs.org/",
+    group: "backend",
+  },
+  {
+    name: "Express",
+    logo: "/svg/express.svg",
+    path: "https://expressjs.com/",
+    group: "backend",
+  },
+  {
+    name: "NestJS",
+    logo: "/svg/nestjs.svg",
+    path: "https://nestjs.com/",
+    group: "backend",
+  },
+  {
+    name: "Prisma",
+    logo: "/svg/prisma.svg",
+    path: "https://www.prisma.io/",
+    group: "backend",
+  },
+  {
+    name: "Dexie",
+    logo: "/svg/dexie.svg",
+    path: "https://dexie.org/",
+    group: "backend",
   },
   {
     name: "PostgreSQL",
     logo: "/svg/postgresql.svg",
     path: "https://www.postgresql.org/",
+    group: "backend",
+  },
+  {
+    name: "MongoDB",
+    logo: "/svg/mongodb.svg",
+    path: "https://www.mongodb.com/",
+    group: "backend",
+  },
+  {
+    name: "Git",
+    logo: "/svg/git.svg",
+    path: "https://git-scm.com/",
+    group: "tools",
+  },
+  {
+    name: "Redux",
+    logo: "/svg/redux.svg",
+    path: "https://redux.js.org/",
+    group: "tools",
+  },
+  {
+    name: "Firebase",
+    logo: "/svg/firebase.svg",
+    path: "https://firebase.google.com/",
+    group: "tools",
+  },
+  {
+    name: "Astro",
+    logo: "/svg/astro.svg",
+    path: "https://astro.build/",
+    group: "tools",
+  },
+];
+
+export const techGroups = [
+  {
+    id: "frontend",
+    items: techs.filter((tech) => tech.group === "frontend"),
+  },
+  {
+    id: "backend",
+    items: techs.filter((tech) => tech.group === "backend"),
+  },
+  {
+    id: "tools",
+    items: techs.filter((tech) => tech.group === "tools"),
   },
 ];
 
 export const experienceIds = [
   {
-    id: "freelancer",
-    href: "#projects",
-  },
-  {
     id: "digichanges",
     href: "https://digichanges.com/es/",
     external: true,
+  },
+  {
+    id: "freelancer",
+    href: "#projects",
   },
 ];

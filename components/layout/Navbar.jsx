@@ -27,10 +27,11 @@ export default function Navbar() {
 
   const links = [
     { name: t("home"), href: "#welcome" },
-    { name: t("about"), href: "#about-me" },
-    { name: t("tech"), href: "#technologies" },
+    { name: t("featured"), href: "#featured" },
+    { name: t("projects"), href: "#projects" },
+    { name: t("about"), href: "#about" },
     { name: t("experience"), href: "#experience" },
-    { name: t("projects"), href: "#featured" },
+    { name: t("tech"), href: "#stack" },
   ];
 
   return (

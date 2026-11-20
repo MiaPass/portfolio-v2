@@ -6,9 +6,10 @@
   "nav": {
     "home": "Inicio",
     "about": "Sobre mí",
-    "tech": "Tecnologías",
+    "tech": "Stack",
     "experience": "Experiencia",
     "projects": "Proyectos",
+    "featured": "Destacados",
     "toggleMenu": "Abrir o cerrar menú",
     "language": "Idioma"
   },
@@ -30,42 +31,33 @@
   },
   "about": {
     "title": "Sobre mí",
-    "p1Before": "Mi nombre es",
-    "p1After": ", tengo {age} años y soy de Argentina. En 2021 decidí darle un giro a mi vida y comenzar a estudiar desarrollo de software.",
-    "p2": "Me considero una persona creativa e innovadora, con flexibilidad e iniciativa para investigar y adaptarme a nuevas tecnologías. Estoy en constante aprendizaje y evolucionando como desarrolladora en cada paso.",
-    "frontend": "En el Front-end",
-    "backend": "En el Back-end",
-    "frontendSkills": [
-      "Sitios responsive con React o Solid.",
-      "Adapto imágenes con Photoshop e Illustrator y exporto formatos optimizados.",
-      "CSS y SASS; me adapto a Bootstrap y Tailwind.",
-      "Datos HTTP con fetch o axios."
-    ],
-    "backendSkills": [
-      "APIs REST con Express.",
-      "Bases relacionales y no relacionales (MySQL, MongoDB…).",
-      "Diseño de modelos de datos.",
-      "Módulos npm según las necesidades del proyecto."
-    ]
+    "line1": "Soy {name}, tengo {age} años y soy de Argentina. Desde 2021 trabajo en productos web con foco en frontend.",
+    "line2": "Construyo interfaces en React, Next, Vue y Nuxt, con base en Node/Express cuando el producto lo pide.",
+    "line3": "Me interesa que las apps sean rápidas, accesibles y usables offline — Pulso es el ejemplo más reciente."
   },
   "tech": {
-    "title": "Tech Skills",
-    "subtitle": "Tecnologías a las que más dedico tiempo."
+    "title": "Stack",
+    "subtitle": "Herramientas con las que entrego producto, agrupadas por capa.",
+    "groups": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "tools": "Herramientas"
+    }
   },
   "experience": {
-    "title": "Mi experiencia",
+    "title": "Experiencia",
     "items": {
-      "freelancer": {
-        "title": "Freelancer",
-        "date": "Ene 2023 — Presente",
-        "desc": "Desarrollo freelance de landings y apps web interactivas. Parte de ese trabajo está en Proyectos.",
-        "techs": "HTML, CSS, React, Redux, Swiper, Node.js, Mercado Pago, Firebase"
-      },
       "digichanges": {
         "title": "DigiChanges",
         "date": "Ago 2024 — May 2025",
-        "desc": "Front-end en equipo: funcionalidades de cliente con foco en UX clara y eficiente.",
-        "techs": "HTML, CSS, Tailwind, Next.js, React, Vue, Nuxt, Astro, Solid, Node.js"
+        "desc": "Frontend en equipo: paneles y sitios de cliente con UX clara (Vue/Nuxt, Next/React).",
+        "techs": "Next.js, React, Vue, Nuxt, Tailwind, Node.js"
+      },
+      "freelancer": {
+        "title": "Freelance",
+        "date": "Ene 2023 — Presente",
+        "desc": "Landings y apps web interactivas de punta a punta. Parte del trabajo está en Proyectos.",
+        "techs": "React, Next.js, Node.js, Firebase, Tailwind"
       }
     }
   },
