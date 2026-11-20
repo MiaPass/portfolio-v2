@@ -9,6 +9,7 @@ import { addMotionMatch, fadeInReduced, motion } from "@/lib/motion";
 import { profile } from "@/data/profile";
 import { pulsoDemoUrl } from "@/data/projects";
 import DeviceMockup from "@/components/ui/DeviceMockup";
+import Magnetic from "@/components/ui/Magnetic";
 
 function MorphLink({
   href,
@@ -245,19 +246,21 @@ export default function Hero() {
           </p>
 
           <div className="mt-7 flex flex-col items-center gap-3 sm:flex-row md:justify-start">
-            <MorphLink
-              href="#featured"
-              onClick={scrollToFeatured}
-              className="hero-cta hero-fade inline-flex items-center gap-2 rounded-(--radius) bg-primary px-6 py-3 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-              idleIcon={ArrowRight}
-              hoverIcon={ArrowUpRight}
-            >
-              {t("viewProjects")}
-            </MorphLink>
+            <Magnetic className="hero-cta hero-fade inline-flex">
+              <MorphLink
+                href="#featured"
+                onClick={scrollToFeatured}
+                className="inline-flex items-center gap-2 rounded-(--radius) bg-primary px-6 py-3 text-base font-semibold text-primary-foreground transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                idleIcon={ArrowRight}
+                hoverIcon={ArrowUpRight}
+              >
+                {t("viewProjects")}
+              </MorphLink>
+            </Magnetic>
             <MorphLink
               href={pulsoDemoUrl}
               external
-              className="hero-cta hero-fade inline-flex items-center gap-2 rounded-(--radius) border border-border bg-card/40 px-6 py-3 text-base font-semibold text-foreground transition hover:border-primary/50 hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+              className="hero-cta hero-fade inline-flex items-center gap-2 rounded-(--radius) border border-border px-6 py-3 text-base font-semibold text-foreground transition hover:border-foreground/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
               idleIcon={ExternalLink}
               hoverIcon={ArrowUpRight}
             >

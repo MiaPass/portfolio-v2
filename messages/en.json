@@ -24,21 +24,25 @@
   },
   "featured": {
     "title": "Featured work",
-    "subtitle": "Case studies with the problem, what I built, and the technical calls.",
-    "label": "Case study",
     "problem": "Problem:",
     "whatIDid": "What I did:",
-    "decisions": "Technical decisions"
+    "decisions": "Technical decisions",
+    "kinds": {
+      "personal": "Personal project",
+      "work": "Work",
+      "demo": "Demo",
+      "client": "Client work"
+    }
   },
   "about": {
     "title": "About me",
     "line1": "I'm {name}, {age}, from Argentina. Since 2021 I've shipped web products with a frontend focus.",
     "line2": "I build interfaces in React, Next, Vue and Nuxt, with a Node/Express base when the product needs it.",
-    "line3": "I care about fast, accessible apps that stay usable offline — Pulso is the latest example."
+    "line3": "I care about fast, accessible apps that stay usable offline. Pulso is the latest example.",
+    "line4": "Outside of code: [something of mine]."
   },
   "tech": {
     "title": "Stack",
-    "subtitle": "Tools I use to ship product, grouped by layer.",
     "groups": {
       "frontend": "Frontend",
       "backend": "Backend",
@@ -47,16 +51,23 @@
   },
   "experience": {
     "title": "Experience",
+    "present": "Present",
     "items": {
+      "reapersquad": {
+        "title": "ReaperSquad",
+        "role": "Frontend Developer",
+        "desc": "I build the company site and the accounts panel (auth and user management), deployed with Docker and Coolify.",
+        "techs": "Next.js, React, Tailwind CSS, Zustand, Docker, Coolify"
+      },
       "digichanges": {
         "title": "DigiChanges",
-        "date": "Aug 2024 — May 2025",
+        "role": "Frontend Developer",
         "desc": "Frontend in a team: client panels and sites with clear UX (Vue/Nuxt, Next/React).",
         "techs": "Next.js, React, Vue, Nuxt, Tailwind, Node.js"
       },
       "freelancer": {
         "title": "Freelance",
-        "date": "Jan 2023 — Present",
+        "role": "Frontend Developer",
         "desc": "End-to-end landings and interactive web apps. Some of that work is in Projects.",
         "techs": "React, Next.js, Node.js, Firebase, Tailwind"
       }
@@ -64,7 +75,6 @@
   },
   "projects": {
     "title": "Other projects",
-    "subtitle": "More work, filterable by stack.",
     "filterAll": "All",
     "demo": "View demo",
     "viewScreenshots": "View screenshots",
@@ -127,7 +137,7 @@
       "dashboard-landing": {
         "name": "Dashboard Landing",
         "desc": "Interactive order dashboard demo. Deployed on Vercel.",
-        "problem": "Show a modern order dashboard demo with motion and shared UI state — no real backend required.",
+        "problem": "Show a modern order dashboard demo with motion and shared UI state, without a real backend.",
         "whatIDid": "Built an interactive dashboard landing in Next.js with HeroUI components, Framer Motion, and Zustand, deployed on Vercel.",
         "decisions": [
           "HeroUI + Tailwind for a consistent, fast-to-compose component system.",
@@ -143,7 +153,6 @@
   },
   "contact": {
     "title": "Let’s work together",
-    "subtitle": "Copy my email, reach me on LinkedIn, or see my work on GitHub.",
     "copyEmail": "Copy email",
     "copied": "Copied!",
     "linkedin": "LinkedIn",

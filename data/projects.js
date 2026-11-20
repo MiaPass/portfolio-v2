@@ -7,6 +7,8 @@ export const projects = [
   {
     id: "pulso",
     featured: true,
+    year: 2026,
+    kind: "personal",
     tags: ["Vue/Nuxt"],
     techs:
       "Nuxt 3, Pinia, Dexie, NestJS, Prisma, PostgreSQL, PWA, pnpm monorepo",
@@ -24,6 +26,8 @@ export const projects = [
   {
     id: "reapersquad-accounts",
     featured: true,
+    year: 2025,
+    kind: "work",
     tags: ["Next", "React"],
     techs: "Next.js, React, Tailwind CSS, Zustand, Docker, Coolify",
     mode: "link",
@@ -35,6 +39,8 @@ export const projects = [
   {
     id: "dashboard-landing",
     featured: true,
+    year: 2025,
+    kind: "demo",
     tags: ["Next", "Landing", "React"],
     techs: "Next.js, Tailwind CSS, HeroUI, Framer Motion, Zustand, Vercel",
     mode: "link",
@@ -169,9 +175,9 @@ export const techs = [
     group: "frontend",
   },
   {
-    name: "PWA",
-    logo: "/svg/pwa.svg",
-    path: "https://web.dev/progressive-web-apps/",
+    name: "Dexie",
+    logo: "/svg/dexie.svg",
+    path: "https://dexie.org/",
     group: "frontend",
   },
   {
@@ -190,12 +196,6 @@ export const techs = [
     name: "Prisma",
     logo: "/svg/prisma.svg",
     path: "https://www.prisma.io/",
-    group: "backend",
-  },
-  {
-    name: "Dexie",
-    logo: "/svg/dexie.svg",
-    path: "https://dexie.org/",
     group: "backend",
   },
   {
@@ -253,12 +253,24 @@ export const techGroups = [
 
 export const experienceIds = [
   {
+    id: "reapersquad",
+    href: "https://www.reapersquad.online/en",
+    external: true,
+    current: true,
+    start: "2025-01",
+    end: null,
+  },
+  {
     id: "digichanges",
     href: "https://digichanges.com/es/",
     external: true,
+    start: "2024-08",
+    end: "2025-05",
   },
   {
     id: "freelancer",
     href: "#projects",
+    start: "2023-01",
+    end: "2026-08",
   },
 ];

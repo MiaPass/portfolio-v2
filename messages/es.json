@@ -24,21 +24,25 @@
   },
   "featured": {
     "title": "Proyectos destacados",
-    "subtitle": "Casos de estudio con el problema, lo que hice y las decisiones técnicas.",
-    "label": "Caso de estudio",
     "problem": "Problema:",
     "whatIDid": "Qué hice:",
-    "decisions": "Decisiones técnicas"
+    "decisions": "Decisiones técnicas",
+    "kinds": {
+      "personal": "Proyecto personal",
+      "work": "Trabajo",
+      "demo": "Demo",
+      "client": "Cliente"
+    }
   },
   "about": {
     "title": "Sobre mí",
     "line1": "Soy {name}, tengo {age} años y soy de Argentina. Desde 2021 trabajo en productos web con foco en frontend.",
     "line2": "Construyo interfaces en React, Next, Vue y Nuxt, con base en Node/Express cuando el producto lo pide.",
-    "line3": "Me interesa que las apps sean rápidas, accesibles y usables offline — Pulso es el ejemplo más reciente."
+    "line3": "Me interesa que las apps sean rápidas, accesibles y usables offline. Pulso es el ejemplo más reciente.",
+    "line4": "Fuera del código: [algo mío]."
   },
   "tech": {
     "title": "Stack",
-    "subtitle": "Herramientas con las que entrego producto, agrupadas por capa.",
     "groups": {
       "frontend": "Frontend",
       "backend": "Backend",
@@ -47,16 +51,23 @@
   },
   "experience": {
     "title": "Experiencia",
+    "present": "Presente",
     "items": {
+      "reapersquad": {
+        "title": "ReaperSquad",
+        "role": "Frontend Developer",
+        "desc": "Desarrollo el sitio de la empresa y el panel de cuentas (auth y gestión de usuarios), con deploy en Docker y Coolify.",
+        "techs": "Next.js, React, Tailwind CSS, Zustand, Docker, Coolify"
+      },
       "digichanges": {
         "title": "DigiChanges",
-        "date": "Ago 2024 — May 2025",
+        "role": "Frontend Developer",
         "desc": "Frontend en equipo: paneles y sitios de cliente con UX clara (Vue/Nuxt, Next/React).",
         "techs": "Next.js, React, Vue, Nuxt, Tailwind, Node.js"
       },
       "freelancer": {
         "title": "Freelance",
-        "date": "Ene 2023 — Presente",
+        "role": "Frontend Developer",
         "desc": "Landings y apps web interactivas de punta a punta. Parte del trabajo está en Proyectos.",
         "techs": "React, Next.js, Node.js, Firebase, Tailwind"
       }
@@ -64,7 +75,6 @@
   },
   "projects": {
     "title": "Otros proyectos",
-    "subtitle": "Más trabajo filtrable por stack.",
     "filterAll": "Todos",
     "demo": "Ver demo",
     "viewScreenshots": "Ver capturas",
@@ -143,7 +153,6 @@
   },
   "contact": {
     "title": "¿Trabajamos juntos?",
-    "subtitle": "Copiá mi email, escribime por LinkedIn o mirá mi trabajo en GitHub.",
     "copyEmail": "Copiar email",
     "copied": "¡Copiado!",
     "linkedin": "LinkedIn",

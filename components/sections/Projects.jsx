@@ -8,6 +8,8 @@ import { ArrowRight, ArrowUpRight, Images } from "lucide";
 import { MorphIcon } from "morphicons/react";
 import { otherProjects, projectFilterTags } from "@/data/projects";
 import ProjectGalleryModal from "@/components/ui/ProjectGalleryModal";
+import SectionHeading from "@/components/ui/SectionHeading";
+import { formatTechList } from "@/lib/formatTech";
 import { gsap, useGSAP, ScrollTrigger, Flip } from "@/lib/gsap";
 import { addMotionMatch, fadeInReduced, motion, prefersReducedMotion } from "@/lib/motion";
 
@@ -93,8 +95,8 @@ function ProjectCardContent({ project, hovered, name, desc, large }) {
         <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
           {desc}
         </p>
-        <p className="mt-3 font-mono text-[11px] tracking-wide text-primary">
-          {project.techs}
+        <p className="mt-3 text-xs text-muted-foreground">
+          {formatTechList(project.techs)}
         </p>
       </div>
     </>
@@ -102,7 +104,7 @@ function ProjectCardContent({ project, hovered, name, desc, large }) {
 }
 
 const cardClassName =
-  "project-card group flex h-full w-full flex-col overflow-hidden rounded-(--radius) bg-card text-left shadow-lg ring-1 ring-border transition duration-(--duration-fast) ease-(--ease-smooth-out) hover:ring-primary hover:shadow-primary/10";
+  "project-card group flex h-full w-full flex-col overflow-hidden rounded-(--radius) bg-card/40 text-left ring-1 ring-border/70 transition duration-(--duration-fast) ease-(--ease-smooth-out) hover:ring-border";
 
 function ProjectCard({ project, onOpenGallery, large }) {
   const t = useTranslations("projects");
@@ -251,15 +253,10 @@ export default function Projects() {
       className="scroll-mt-20 bg-background py-24"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="text-center">
-          <h2 className="font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-            {t("title")}
-          </h2>
-          <p className="mt-3 text-base text-foreground/75">{t("subtitle")}</p>
-        </div>
+        <SectionHeading index="02">{t("title")}</SectionHeading>
 
         <div
-          className="t-tabs mx-auto mt-10 flex w-fit max-w-full flex-wrap items-center justify-center gap-1 rounded-(--radius) border border-border bg-card/60 p-1"
+          className="t-tabs mt-10 flex w-fit max-w-full flex-wrap items-center gap-1"
           role="tablist"
           aria-label={t("title")}
         >
@@ -273,7 +270,7 @@ export default function Projects() {
                 role="tab"
                 aria-selected={active}
                 onClick={() => applyFilter(tag)}
-                className={`rounded-[calc(var(--radius)-2px)] px-3 py-1.5 text-sm font-medium transition duration-(--duration-fast) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring ${
+                className={`rounded-(--radius) px-3 py-1.5 text-sm font-medium transition duration-(--duration-fast) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring ${
                   active
                     ? "bg-primary text-primary-foreground"
                     : "text-muted-foreground hover:text-foreground"

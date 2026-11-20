@@ -17,7 +17,7 @@ export default function DeviceMockup({
     <>
       {/* Phone — mobile */}
       <div className="mx-auto w-full max-w-[240px] md:hidden">
-        <div className="relative overflow-hidden rounded-[1.75rem] border-[3px] border-border bg-card shadow-2xl shadow-primary/10 ring-1 ring-border">
+        <div className="relative overflow-hidden rounded-[1.75rem] border-[3px] border-border bg-card shadow-2xl ring-1 ring-border">
           <div className="absolute inset-x-0 top-0 z-10 flex justify-center pt-2" aria-hidden="true">
             <span className="h-1.5 w-16 rounded-full bg-muted-foreground/40" />
           </div>
@@ -37,7 +37,7 @@ export default function DeviceMockup({
 
       {/* Browser — desktop */}
       <div className="hidden w-full md:block">
-        <div className="overflow-hidden rounded-xl border border-border bg-card shadow-2xl shadow-primary/10 ring-1 ring-border">
+        <div className="overflow-hidden rounded-xl border border-border bg-card shadow-2xl ring-1 ring-border">
           <div
             className="flex items-center gap-2 border-b border-border bg-secondary/80 px-3 py-2.5"
             aria-hidden="true"
