@@ -6,16 +6,17 @@ import { Menu, X } from "lucide";
 import { MorphIcon } from "morphicons/react";
 import { Link } from "@/i18n/navigation";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { profile } from "@/data/profile";
 
 const socials = [
   {
     name: "GitHub",
-    href: "https://www.github.com/MiaPass",
+    href: profile.github,
     icon: "/svg/github.svg",
   },
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/in/ninamiapassalia/",
+    href: profile.linkedin,
     icon: "/svg/linkedin.svg",
   },
 ];
@@ -29,7 +30,7 @@ export default function Navbar() {
     { name: t("about"), href: "#about-me" },
     { name: t("tech"), href: "#technologies" },
     { name: t("experience"), href: "#experience" },
-    { name: t("projects"), href: "#projects" },
+    { name: t("projects"), href: "#featured" },
   ];
 
   return (
@@ -39,7 +40,7 @@ export default function Navbar() {
           href="/"
           className="font-display text-xl font-semibold tracking-tight text-foreground"
         >
-          Mia Passalia
+          {profile.name}
         </Link>
 
         <div className="hidden items-center gap-6 lg:flex">

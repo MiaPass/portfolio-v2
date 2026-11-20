@@ -1,3 +1,6 @@
+/** Demo URL for Pulso — change here to update Hero CTA and featured case. */
+export const pulsoDemoUrl = "https://web-steel-five-33.vercel.app";
+
 export const projects = [
   {
     id: "reapersquad-accounts",

@@ -176,7 +176,7 @@ export default function Projects() {
   );
 
   return (
-    <section ref={scope} id="projects" className="bg-background py-24">
+    <section ref={scope} id="featured" className="scroll-mt-20 bg-background py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="text-center">
           <h2 className="font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">

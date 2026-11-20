@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Mia Passalia | Fullstack Developer",
-    "description": "Portfolio of Mia Passalia, fullstack developer from Argentina."
+    "title": "Mia Passalia | Frontend Developer",
+    "description": "Portfolio of Mia Passalia, frontend developer with a Node/NestJS fullstack foundation."
   },
   "nav": {
     "home": "Home",
@@ -13,9 +13,11 @@
     "language": "Language"
   },
   "welcome": {
-    "role": "Fullstack Developer",
-    "meet": "About me",
-    "viewProjects": "View projects"
+    "headline": "I build fast, accessible interfaces that keep working offline.",
+    "subtitle": "Frontend Developer with a Node and NestJS background. Vue, Nuxt, React and Next.",
+    "available": "Available for work",
+    "viewProjects": "View projects",
+    "tryPulso": "Try Pulso"
   },
   "about": {
     "title": "About me",

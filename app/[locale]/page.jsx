@@ -1,5 +1,5 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import Welcome from "@/components/sections/Welcome";
+import Hero from "@/components/sections/Hero";
 import Projects from "@/components/sections/Projects";
 import ContactActions from "@/components/sections/ContactActions";
 import Reveal from "@/components/motion/Reveal";
@@ -20,7 +20,7 @@ export default async function HomePage({ params }) {
 
   return (
     <>
-      <Welcome />
+      <Hero />
 
       <section id="about-me" className="bg-background py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">

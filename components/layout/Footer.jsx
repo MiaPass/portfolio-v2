@@ -25,7 +25,7 @@ export default function Footer() {
     { name: t("nav.about"), href: "#about-me" },
     { name: t("nav.tech"), href: "#technologies" },
     { name: t("nav.experience"), href: "#experience" },
-    { name: t("nav.projects"), href: "#projects" },
+    { name: t("nav.projects"), href: "#featured" },
   ];
 
   return (
