@@ -17,7 +17,16 @@
     "subtitle": "Frontend Developer with a Node and Express background. Vue, Nuxt, React and Next.",
     "available": "Available for work",
     "viewProjects": "View projects",
-    "tryPulso": "Try Pulso"
+    "tryPulso": "Try Pulso",
+    "mockupAlt": "Screenshot of Pulso, a personal finance app"
+  },
+  "featured": {
+    "title": "Featured work",
+    "subtitle": "Case studies with the problem, what I built, and the technical calls.",
+    "label": "Case study",
+    "problem": "Problem:",
+    "whatIDid": "What I did:",
+    "decisions": "Technical decisions"
   },
   "about": {
     "title": "About me",
@@ -61,15 +70,35 @@
     }
   },
   "projects": {
-    "title": "Projects",
+    "title": "Other projects",
+    "demo": "View demo",
+    "code": "View code",
     "openGallery": "Open gallery",
     "closeGallery": "Close gallery",
     "prevImage": "Previous image",
     "nextImage": "Next image",
     "items": {
+      "pulso": {
+        "name": "Pulso",
+        "desc": "Offline-first personal finance PWA with sync and demo mode.",
+        "problem": "Track personal finances without constant connectivity, with data that survives offline and syncs later.",
+        "whatIDid": "Designed and built an offline-first PWA (frontend + API) with reliable sync, in-browser statement imports, and en/es i18n.",
+        "decisions": [
+          "Outbox pattern for offline → online sync without dropping operations.",
+          "Dexie on the client for local storage; NestJS + Prisma + Postgres on the server.",
+          "CSV/Excel/PDF import entirely in the browser, plus a demo mode with temporary accounts."
+        ]
+      },
       "reapersquad-accounts": {
         "name": "Accounts panel",
-        "desc": "Accounts panel for ReaperSquad: auth and user management. Deployed on Coolify with Docker."
+        "desc": "Accounts panel for ReaperSquad: auth and user management. Deployed on Coolify with Docker.",
+        "problem": "Manage ReaperSquad accounts and user access with a clear, deployable admin panel.",
+        "whatIDid": "Built the auth and user-management panel in Next.js, with Zustand state and Docker/Coolify deploy.",
+        "decisions": [
+          "Next.js + React for a fast-to-iterate admin UI.",
+          "Zustand for session state and account flows.",
+          "Docker + Coolify for a reproducible deploy."
+        ]
       },
       "reapersquad": {
         "name": "ReaperSquad",
@@ -81,7 +110,14 @@
       },
       "liquidacion": {
         "name": "Settlement panel",
-        "desc": "Internal settlement system built at DigiChanges."
+        "desc": "Internal settlement system built at DigiChanges.",
+        "problem": "An internal settlement process needed a clear UI operators could run without friction.",
+        "whatIDid": "Built the settlement panel in React/Next with operator-first flows and readable status review.",
+        "decisions": [
+          "Next.js + Tailwind for delivery speed on an internal product.",
+          "UI focused on tables and legible states for operators.",
+          "Screenshot gallery because the product is not public."
+        ]
       },
       "infinity": {
         "name": "Infinity",

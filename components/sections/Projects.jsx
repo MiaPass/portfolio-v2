@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { ArrowRight, ArrowUpRight, Images } from "lucide";
 import { MorphIcon } from "morphicons/react";
-import { projects } from "@/data/projects";
+import { otherProjects } from "@/data/projects";
 import ProjectGalleryModal from "@/components/ui/ProjectGalleryModal";
 import { gsap, useGSAP, ScrollTrigger } from "@/lib/gsap";
 import { motion } from "@/lib/motion";
@@ -176,7 +176,7 @@ export default function Projects() {
   );
 
   return (
-    <section ref={scope} id="featured" className="scroll-mt-20 bg-background py-24">
+    <section ref={scope} id="projects" className="scroll-mt-20 bg-background py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="text-center">
           <h2 className="font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
@@ -184,7 +184,7 @@ export default function Projects() {
           </h2>
         </div>
         <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
+          {otherProjects.map((project) => (
             <ProjectCard
               key={project.id}
               project={project}

@@ -129,6 +129,64 @@ h3,
     opacity var(--modal-close-dur) var(--modal-ease);
 }
 
+/* Card tilt — transitions.dev 19 */
+:root {
+  --tilt-perspective: 1000px;
+  --tilt-return: var(--duration-very-slow);
+  --tilt-return-ease: var(--ease-smooth-out);
+  --tilt-follow: var(--duration-medium);
+  --tilt-follow-ease: var(--ease-smooth-out);
+  --tilt-glare-opacity: 0.28;
+  --tilt-glare-fade: var(--duration-medium);
+  --tilt-glare-ease: var(--ease-smooth-out);
+}
+
+.t-tilt {
+  touch-action: pan-y;
+}
+
+.t-tilt-card {
+  position: relative;
+  transform:
+    perspective(var(--tilt-perspective))
+    rotateX(var(--tilt-rx, 0deg))
+    rotateY(var(--tilt-ry, 0deg));
+  transform-style: preserve-3d;
+  transition: transform var(--tilt-return) var(--tilt-return-ease);
+  will-change: transform;
+}
+
+.t-tilt-card.is-tilting {
+  transition: transform var(--tilt-follow) var(--tilt-follow-ease);
+}
+
+.t-tilt-glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  mix-blend-mode: screen;
+  border-radius: inherit;
+  background:
+    radial-gradient(
+      circle 95px at var(--tilt-gx, 50%) var(--tilt-gy, 50%),
+      rgba(255, 255, 255, 0.48),
+      rgba(255, 255, 255, 0.06) 52%,
+      rgba(255, 255, 255, 0) 84%
+    ),
+    radial-gradient(
+      circle 200px at var(--tilt-gx, 50%) var(--tilt-gy, 50%),
+      rgba(255, 255, 255, 0.22),
+      rgba(255, 255, 255, 0.04) 58%,
+      rgba(255, 255, 255, 0) 78%
+    );
+  transition: opacity var(--tilt-glare-fade) var(--tilt-glare-ease);
+}
+
+.t-tilt.is-hover .t-tilt-glare {
+  opacity: var(--tilt-glare-opacity);
+}
+
 /* Hero available badge pulse */
 @keyframes hero-dot-ping {
   0% {
@@ -162,6 +220,15 @@ h3,
   }
 
   .hero-cursor-glow {
+    display: none !important;
+  }
+
+  .t-tilt-card {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .t-tilt-glare {
     display: none !important;
   }
 }

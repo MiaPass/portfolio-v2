@@ -17,7 +17,16 @@
     "subtitle": "Desarrolladora Frontend con base en Node y Express. Vue, Nuxt, React y Next.",
     "available": "Disponible para trabajar",
     "viewProjects": "Ver proyectos",
-    "tryPulso": "Probar Pulso"
+    "tryPulso": "Probar Pulso",
+    "mockupAlt": "Captura de Pulso, app de finanzas personales"
+  },
+  "featured": {
+    "title": "Proyectos destacados",
+    "subtitle": "Casos de estudio con el problema, lo que hice y las decisiones técnicas.",
+    "label": "Caso de estudio",
+    "problem": "Problema:",
+    "whatIDid": "Qué hice:",
+    "decisions": "Decisiones técnicas"
   },
   "about": {
     "title": "Sobre mí",
@@ -61,15 +70,35 @@
     }
   },
   "projects": {
-    "title": "Mis proyectos",
+    "title": "Otros proyectos",
+    "demo": "Ver demo",
+    "code": "Ver código",
     "openGallery": "Abrir galería",
     "closeGallery": "Cerrar galería",
     "prevImage": "Imagen anterior",
     "nextImage": "Imagen siguiente",
     "items": {
+      "pulso": {
+        "name": "Pulso",
+        "desc": "PWA offline-first de finanzas personales con sync y modo demo.",
+        "problem": "Llevar finanzas personales sin depender de conexión constante, con datos que sobrevivan offline y se sincronicen después.",
+        "whatIDid": "Diseñé y construí una PWA offline-first (frontend + API) con sync confiable, importación de extractos en el navegador e i18n en/es.",
+        "decisions": [
+          "Outbox pattern para sync offline → online sin perder operaciones.",
+          "Dexie en el cliente para storage local; NestJS + Prisma + Postgres en el servidor.",
+          "Import de CSV/Excel/PDF 100% en el navegador y modo demo con cuentas temporales."
+        ]
+      },
       "reapersquad-accounts": {
         "name": "Panel de cuentas",
-        "desc": "Panel de cuentas para ReaperSquad: autenticación y gestión de usuarios. Deploy en Coolify con Docker."
+        "desc": "Panel de cuentas para ReaperSquad: autenticación y gestión de usuarios. Deploy en Coolify con Docker.",
+        "problem": "Gestionar cuentas y acceso de usuarios de ReaperSquad con un panel admin claro y desplegable.",
+        "whatIDid": "Implementé el panel de autenticación y gestión de usuarios en Next.js, con estado en Zustand y deploy Docker/Coolify.",
+        "decisions": [
+          "Next.js + React para UI admin rápida de iterar.",
+          "Zustand para estado de sesión y flujos de cuenta.",
+          "Docker + Coolify para un deploy reproducible."
+        ]
       },
       "reapersquad": {
         "name": "ReaperSquad",
@@ -81,7 +110,14 @@
       },
       "liquidacion": {
         "name": "Panel de liquidación",
-        "desc": "Sistema interno de liquidación desarrollado en DigiChanges."
+        "desc": "Sistema interno de liquidación desarrollado en DigiChanges.",
+        "problem": "Un proceso interno de liquidación que necesitaba una UI clara para operar sin fricción.",
+        "whatIDid": "Construí el panel de liquidación en React/Next con flujos orientados a operadores y revisión visual de estados.",
+        "decisions": [
+          "Next.js + Tailwind para velocidad de entrega en un producto interno.",
+          "UI enfocada en tablas y estados legibles para operadores.",
+          "Galería de capturas porque el producto no es público."
+        ]
       },
       "infinity": {
         "name": "Infinity",

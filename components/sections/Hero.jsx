@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useState } from "react";
-import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { ArrowRight, ArrowUpRight, ExternalLink } from "lucide";
 import { MorphIcon } from "morphicons/react";
@@ -9,6 +8,7 @@ import { gsap, useGSAP, SplitText, ScrollToPlugin } from "@/lib/gsap";
 import { addMotionMatch, fadeInReduced, motion } from "@/lib/motion";
 import { profile } from "@/data/profile";
 import { pulsoDemoUrl } from "@/data/projects";
+import DeviceMockup from "@/components/ui/DeviceMockup";
 
 function MorphLink({
   href,
@@ -266,21 +266,17 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="hero-image hero-fade w-full max-w-sm shrink-0 md:max-w-md lg:max-w-[26rem]">
-          <div className="relative aspect-square">
+        <div className="hero-image hero-fade w-full max-w-[240px] shrink-0 sm:max-w-sm md:max-w-md lg:max-w-[28rem]">
+          <div className="relative">
             <div
-              className="absolute -inset-4 -z-10 rounded-[calc(var(--radius)+1rem)] opacity-60 blur-2xl"
+              className="absolute -inset-6 -z-10 rounded-[calc(var(--radius)+1rem)] opacity-50 blur-3xl"
               style={{ background: "var(--glow)" }}
               aria-hidden="true"
             />
-            <Image
-              src="/welcomeImg.png"
-              alt={profile.name}
-              width={640}
-              height={640}
+            <DeviceMockup
+              src="/projects/pulso/hero.png"
+              alt={t("mockupAlt")}
               priority
-              className="h-auto w-full object-contain drop-shadow-2xl"
-              sizes="(max-width: 768px) 80vw, 416px"
             />
           </div>
         </div>

@@ -3,31 +3,32 @@ export const pulsoDemoUrl = "https://web-steel-five-33.vercel.app";
 
 export const projects = [
   {
+    id: "pulso",
+    featured: true,
+    tags: ["Vue/Nuxt"],
+    techs:
+      "Nuxt 3, Pinia, Dexie, NestJS, Prisma, PostgreSQL, PWA, pnpm monorepo",
+    mode: "link",
+    href: pulsoDemoUrl,
+    demoUrl: pulsoDemoUrl,
+    external: true,
+    media: { type: "image", src: "/projects/pulso/cover.png" },
+  },
+  {
     id: "reapersquad-accounts",
+    featured: true,
+    tags: ["Next", "React"],
     techs: "Next.js, React, Tailwind CSS, Zustand, Docker, Coolify",
     mode: "link",
     href: "https://accounts.reapersquad.online/",
+    demoUrl: "https://accounts.reapersquad.online/",
     external: true,
     media: { type: "image", src: "/projects/reapersquad-accounts/cover.png" },
   },
   {
-    id: "reapersquad",
-    techs: "Next.js, React, Tailwind CSS, Docker, Coolify",
-    mode: "link",
-    href: "https://www.reapersquad.online/en",
-    external: true,
-    media: { type: "image", src: "/projects/reapersquad/cover.png" },
-  },
-  {
-    id: "x28",
-    techs: "Vue.js, Nuxt.js",
-    mode: "link",
-    href: "https://x-28.com/",
-    external: true,
-    media: { type: "image", src: "/projects/x28/cover.png" },
-  },
-  {
     id: "liquidacion",
+    featured: true,
+    tags: ["Next", "React"],
     techs: "React, Next.js, Tailwind CSS",
     mode: "gallery",
     media: { type: "image", src: "/projects/liquidacion/cover.png" },
@@ -39,7 +40,26 @@ export const projects = [
     ],
   },
   {
+    id: "reapersquad",
+    tags: ["Next", "Landing"],
+    techs: "Next.js, React, Tailwind CSS, Docker, Coolify",
+    mode: "link",
+    href: "https://www.reapersquad.online/en",
+    external: true,
+    media: { type: "image", src: "/projects/reapersquad/cover.png" },
+  },
+  {
+    id: "x28",
+    tags: ["Vue/Nuxt"],
+    techs: "Vue.js, Nuxt.js",
+    mode: "link",
+    href: "https://x-28.com/",
+    external: true,
+    media: { type: "image", src: "/projects/x28/cover.png" },
+  },
+  {
     id: "infinity",
+    tags: ["React"],
     techs: "React, Redux, CSS, Swiper",
     mode: "link",
     href: "#projects",
@@ -47,6 +67,7 @@ export const projects = [
   },
   {
     id: "share-it",
+    tags: ["React"],
     techs: "ReactJs, NodeJs, Mercado Pago, Firebase",
     mode: "link",
     href: "https://github.com/henry19ag15/finalproject",
@@ -55,6 +76,7 @@ export const projects = [
   },
   {
     id: "l2-rossek",
+    tags: ["Landing"],
     techs: "HTML, CSS",
     mode: "link",
     href: "https://l2rossek.com/donate/index.html",
@@ -63,6 +85,7 @@ export const projects = [
   },
   {
     id: "construction-site",
+    tags: ["Next", "Landing"],
     techs: "Next.js, Tailwind CSS, Headless UI, Heroicons, Vercel",
     mode: "link",
     href: "https://construction-site-liard.vercel.app/",
@@ -71,6 +94,7 @@ export const projects = [
   },
   {
     id: "dashboard-landing",
+    tags: ["Next", "Landing", "React"],
     techs: "Next.js, Tailwind CSS, HeroUI, Framer Motion, Zustand, Vercel",
     mode: "link",
     href: "https://dashboard-landing-demo.vercel.app/",
@@ -79,6 +103,7 @@ export const projects = [
   },
   {
     id: "tour-landing",
+    tags: ["Landing"],
     techs: "HTML, CSS, JavaScript, Webpack, Netlify",
     mode: "link",
     href: "https://tour-landing-page.netlify.app/",
@@ -86,6 +111,10 @@ export const projects = [
     media: { type: "image", src: "/projects/tour-site/image.png" },
   },
 ];
+
+export const featuredProjects = projects.filter((project) => project.featured);
+
+export const otherProjects = projects.filter((project) => !project.featured);
 
 export const techs = [
   { name: "Git", logo: "/svg/git.svg", path: "https://git-scm.com/" },
