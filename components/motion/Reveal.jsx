@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { gsap, useGSAP, ScrollTrigger } from "@/lib/gsap";
-import { motion } from "@/lib/motion";
+import { addMotionMatch, fadeInReduced, motion } from "@/lib/motion";
 
 export default function Reveal({
   children,
@@ -19,43 +19,52 @@ export default function Reveal({
     () => {
       const mm = gsap.matchMedia();
 
-      mm.add("(prefers-reduced-motion: reduce)", () => {
-        const targets = selector
-          ? scope.current?.querySelectorAll(selector)
-          : scope.current;
-        if (targets) gsap.set(targets, { clearProps: "all" });
-      });
-
-      mm.add("(prefers-reduced-motion: no-preference)", () => {
-        const targets = selector
-          ? gsap.utils.toArray(selector, scope.current)
-          : scope.current;
-
-        if (!targets || (Array.isArray(targets) && targets.length === 0)) {
-          return;
+      const getTargets = () => {
+        if (selector) {
+          return gsap.utils.toArray(selector, scope.current);
         }
+        return scope.current;
+      };
 
-        gsap.fromTo(
-          targets,
-          { opacity: 0, y },
-          {
-            opacity: 1,
-            y: 0,
-            duration: motion.slow,
+      const scrollTriggerBase = {
+        trigger: scope.current,
+        start: "top 85%",
+        once,
+        toggleActions: once ? "play none none none" : "play none none reverse",
+      };
+
+      addMotionMatch(mm, {
+        reduced: () => {
+          const targets = getTargets();
+          if (!targets || (Array.isArray(targets) && targets.length === 0)) {
+            return;
+          }
+          fadeInReduced(gsap, targets, {
             delay,
-            stagger: selector ? stagger : 0,
-            ease: motion.easeSmoothOut,
-            immediateRender: false,
-            scrollTrigger: {
-              trigger: scope.current,
-              start: "top 85%",
-              once,
-              toggleActions: once
-                ? "play none none none"
-                : "play none none reverse",
+            scrollTrigger: scrollTriggerBase,
+          });
+        },
+        full: () => {
+          const targets = getTargets();
+          if (!targets || (Array.isArray(targets) && targets.length === 0)) {
+            return;
+          }
+
+          gsap.fromTo(
+            targets,
+            { opacity: 0, y },
+            {
+              opacity: 1,
+              y: 0,
+              duration: motion.slow,
+              delay,
+              stagger: selector ? stagger : 0,
+              ease: motion.easeSmoothOut,
+              immediateRender: false,
+              scrollTrigger: scrollTriggerBase,
             },
-          },
-        );
+          );
+        },
       });
 
       ScrollTrigger.refresh();

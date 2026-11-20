@@ -29,12 +29,7 @@ export default function ProjectGalleryModal({
   const [closing, setClosing] = useState(false);
   const total = images.length;
 
-  useEffect(() => {
-    if (isOpen) {
-      setIndex(0);
-      setClosing(false);
-    }
-  }, [isOpen]);
+  // Parent remounts via `key` when opening a gallery so index/closing reset without an effect.
 
   useEffect(() => {
     if (!isOpen || total < 2) return;

@@ -195,6 +195,7 @@ export default function Projects() {
       </div>
 
       <ProjectGalleryModal
+        key={galleryProject?.id ?? "closed"}
         isOpen={Boolean(galleryProject)}
         onClose={() => setGalleryProject(null)}
         title={
