@@ -14,7 +14,7 @@ export const projects = [
     href: pulsoDemoUrl,
     demoUrl: pulsoDemoUrl,
     external: true,
-    media: { type: "image", src: "/projects/pulso/cover.jpg" },
+    media: { type: "image", src: "/projects/pulso/image3.jpg" },
     gallery: [
       "/projects/pulso/image.jpg",
       "/projects/pulso/image2.jpg",

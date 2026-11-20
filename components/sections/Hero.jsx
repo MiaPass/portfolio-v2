@@ -274,7 +274,7 @@ export default function Hero() {
               aria-hidden="true"
             />
             <DeviceMockup
-              src="/projects/pulso/hero.jpg"
+              src="/projects/pulso/image.jpg"
               alt={t("mockupAlt")}
               priority
             />
