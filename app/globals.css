@@ -218,6 +218,29 @@ h3,
   animation: hero-dot-ping 1.4s var(--ease-smooth-out) infinite;
 }
 
+/* Magnetic micro-interaction */
+.magnetic-target {
+  transition: transform var(--duration-fast) var(--ease-smooth-out);
+  will-change: transform;
+}
+
+/* Language switcher label soft swap */
+.t-lang-label {
+  display: inline-block;
+  animation: lang-label-in var(--duration-fast) var(--ease-smooth-out);
+}
+
+@keyframes lang-label-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -253,5 +276,14 @@ h3,
     justify-content: center;
     max-width: 72rem;
     margin-inline: auto;
+  }
+
+  .magnetic-target {
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .t-lang-label {
+    animation: none;
   }
 }

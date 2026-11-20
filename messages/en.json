@@ -10,6 +10,7 @@
     "experience": "Experience",
     "projects": "Projects",
     "featured": "Featured",
+    "contact": "Contact",
     "toggleMenu": "Toggle menu",
     "language": "Language"
   },
@@ -142,9 +143,12 @@
   },
   "contact": {
     "title": "Let’s work together",
-    "subtitle": "Reach me on LinkedIn or see my work on GitHub.",
+    "subtitle": "Copy my email, reach me on LinkedIn, or see my work on GitHub.",
+    "copyEmail": "Copy email",
+    "copied": "Copied!",
     "linkedin": "LinkedIn",
-    "github": "GitHub"
+    "github": "GitHub",
+    "downloadCv": "Download CV"
   },
   "footer": {
     "copy": "Ianina Mia Passalia"

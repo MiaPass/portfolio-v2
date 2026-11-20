@@ -19,6 +19,24 @@ export async function generateMetadata({ params }) {
   return {
     title: t("title"),
     description: t("description"),
+    openGraph: {
+      title: t("title"),
+      description: t("description"),
+      locale,
+      type: "website",
+      siteName: "Mia Passalia",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("description"),
+    },
+    alternates: {
+      languages: {
+        es: "/es",
+        en: "/en",
+      },
+    },
   };
 }
 

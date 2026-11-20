@@ -23,7 +23,7 @@ export default function LanguageSwitcher() {
     <button
       type="button"
       onClick={switchLocale}
-      className="inline-flex items-center gap-2 rounded-lg px-2.5 py-1.5 text-sm font-semibold text-muted-foreground transition hover:bg-accent hover:text-foreground"
+      className="t-lang-switch inline-flex items-center gap-2 rounded-lg px-2.5 py-1.5 text-sm font-semibold text-muted-foreground transition hover:bg-accent hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
       aria-label={`${t("language")}: ${nextLabel}`}
       title={`${t("language")}: ${nextLabel}`}
     >
@@ -33,7 +33,9 @@ export default function LanguageSwitcher() {
         spring="smooth"
         reducedMotion="user"
       />
-      <span className="font-mono text-xs tracking-wide">{nextLabel}</span>
+      <span key={nextLabel} className="t-lang-label font-mono text-xs tracking-wide">
+        {nextLabel}
+      </span>
       <span className="sr-only">{routing.locales.join(", ")}</span>
     </button>
   );
