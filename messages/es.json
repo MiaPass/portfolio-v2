@@ -15,7 +15,7 @@
     "language": "Idioma"
   },
   "welcome": {
-    "headline": "Construyo interfaces rápidas, accesibles y que funcionan sin conexión.",
+    "headline": "Diseño y desarrollo paneles, sitios y apps web de punta a punta.",
     "subtitle": "Desarrolladora Frontend con base en Node y Express. Vue, Nuxt, React y Next.",
     "available": "Disponible para trabajar",
     "viewProjects": "Ver proyectos",
@@ -38,7 +38,7 @@
     "title": "Sobre mí",
     "line1": "Soy {name}, tengo {age} años y soy de Argentina. Desde 2021 trabajo en productos web con foco en frontend.",
     "line2": "Construyo interfaces en React, Next, Vue y Nuxt, con base en Node/Express cuando el producto lo pide.",
-    "line3": "Me interesa que las apps sean rápidas, accesibles y usables offline. Pulso es el ejemplo más reciente.",
+    "line3": "Me interesa que las apps sean rápidas, accesibles y fáciles de usar. Pulso es el ejemplo más reciente.",
     "line4": "Fuera del código: [algo mío]."
   },
   "tech": {

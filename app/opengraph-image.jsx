@@ -46,7 +46,7 @@ export default function OpenGraphImage() {
               lineHeight: 1.3,
             }}
           >
-            Frontend Developer. Interfaces rápidas, accesibles y offline-ready
+            Frontend Developer. Paneles, sitios y apps web de punta a punta.
           </div>
         </div>
         <div

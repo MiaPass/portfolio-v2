@@ -15,7 +15,7 @@
     "language": "Language"
   },
   "welcome": {
-    "headline": "I build fast, accessible interfaces that keep working offline.",
+    "headline": "I design and build dashboards, websites and web apps, end to end.",
     "subtitle": "Frontend Developer with a Node and Express background. Vue, Nuxt, React and Next.",
     "available": "Available for work",
     "viewProjects": "View projects",
@@ -38,7 +38,7 @@
     "title": "About me",
     "line1": "I'm {name}, {age}, from Argentina. Since 2021 I've shipped web products with a frontend focus.",
     "line2": "I build interfaces in React, Next, Vue and Nuxt, with a Node/Express base when the product needs it.",
-    "line3": "I care about fast, accessible apps that stay usable offline. Pulso is the latest example.",
+    "line3": "I care about fast, accessible apps that are easy to use. Pulso is the latest example.",
     "line4": "Outside of code: [something of mine]."
   },
   "tech": {
