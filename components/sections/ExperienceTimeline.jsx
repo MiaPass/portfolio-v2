@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { experienceIds } from "@/data/projects";
-import { formatExperienceRange } from "@/lib/formatDate";
+import { formatMonthYear } from "@/lib/formatDate";
 import { formatTechList } from "@/lib/formatTech";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { gsap, useGSAP, ScrollTrigger } from "@/lib/gsap";
@@ -129,7 +129,15 @@ export default function ExperienceTimeline() {
                         </p>
                       </div>
                       <span className="shrink-0 text-sm text-muted-foreground">
-                        {formatExperienceRange(exp, locale, presentLabel)}
+                        {formatMonthYear(exp.start, locale)}
+                        {" - "}
+                        {exp.end ? (
+                          formatMonthYear(exp.end, locale)
+                        ) : (
+                          <span className="font-medium text-secondary">
+                            {presentLabel}
+                          </span>
+                        )}
                       </span>
                     </div>
                     <p className="mt-3 max-w-prose text-base leading-relaxed text-foreground/80">

@@ -94,7 +94,7 @@ export default function Navbar() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
         <Link
           href="/"
-          className="font-display text-xl font-semibold tracking-tight text-foreground transition hover:text-primary"
+          className="font-display text-xl font-semibold tracking-tight text-foreground transition hover:text-secondary"
         >
           {profile.name}
         </Link>
@@ -107,7 +107,7 @@ export default function Navbar() {
                 key={item.href}
                 href={item.href}
                 aria-current={isActive ? "true" : undefined}
-                className={`text-sm font-medium transition hover:text-primary ${
+                className={`text-sm font-medium underline-offset-4 transition hover:text-secondary hover:underline hover:decoration-secondary ${
                   isActive ? "text-primary" : "text-muted-foreground"
                 }`}
               >

@@ -1,31 +1,31 @@
 @import "tailwindcss";
 
-/* Tangerine dark (inspired by tweakcn/shadcnthemes — no shadcn install) */
+/* 0400AM dark (shadcnthemer — palette only; no shadcn install) */
 :root {
-  --background: oklch(0.26 0.03 262.67);
-  --foreground: oklch(0.92 0 0);
-  --card: oklch(0.31 0.03 268.64);
-  --card-foreground: oklch(0.92 0 0);
-  --popover: oklch(0.29 0.02 268.4);
-  --popover-foreground: oklch(0.92 0 0);
-  --primary: oklch(0.64 0.17 36.44);
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.31 0.03 266.71);
-  --secondary-foreground: oklch(0.92 0 0);
-  --muted: oklch(0.31 0.03 266.71);
-  --muted-foreground: oklch(0.72 0 0);
-  --accent: oklch(0.34 0.06 267.59);
-  --accent-foreground: oklch(0.88 0.06 254.13);
-  --destructive: oklch(0.64 0.21 25.33);
-  --success: oklch(0.72 0.17 150);
-  --border: oklch(0.38 0.03 269.73);
-  --input: oklch(0.38 0.03 269.73);
-  --ring: oklch(0.64 0.17 36.44);
-  --radius: 0.75rem;
+  --background: oklch(0.2 0.014 298);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.24 0.014 298.44);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.29 0.026 287.57);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.686 0.143 285.66);
+  --primary-foreground: oklch(0.132 0.004 17.69);
+  --secondary: oklch(0.642 0.105 158.02);
+  --secondary-foreground: oklch(0.14 0 0);
+  --muted: oklch(0.24 0.014 298.44);
+  --muted-foreground: oklch(0.824 0.029 305.98);
+  --accent: oklch(0.437 0.106 285.26);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.551 0.18 24.32);
+  --success: var(--secondary);
+  --border: oklch(0.397 0.059 291.35);
+  --input: oklch(0.397 0.059 291.35);
+  --ring: oklch(0.642 0.105 158.02);
+  --radius: 0.625rem;
 
   /* Atmosphere */
   --glow: color-mix(in oklch, var(--primary) 28%, transparent);
-  --surface-elevated: oklch(0.33 0.035 268);
+  --surface-elevated: oklch(0.29 0.026 287.57);
 
   /* transitions.dev motion tokens */
   --duration-stagger: 40ms;
@@ -87,12 +87,14 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-body), system-ui, sans-serif;
+  overflow-x: clip;
 }
 
 h1,
@@ -187,6 +189,55 @@ h3,
   opacity: var(--tilt-glare-opacity);
 }
 
+/* Stack marquee */
+@keyframes stack-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes stack-marquee-reverse {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.stack-marquee {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
+}
+
+.stack-marquee-track {
+  animation: stack-marquee 48s linear infinite;
+}
+
+.stack-marquee-track--reverse {
+  animation-name: stack-marquee-reverse;
+}
+
+.stack-marquee:hover .stack-marquee-track,
+.stack-marquee:focus-within .stack-marquee-track {
+  animation-play-state: paused;
+}
+
 /* Hero available badge pulse */
 @keyframes hero-dot-ping {
   0% {
@@ -253,6 +304,10 @@ h3,
 
   .t-tilt-glare {
     display: none !important;
+  }
+
+  .stack-marquee-track {
+    animation: none;
   }
 
   .magnetic-target {

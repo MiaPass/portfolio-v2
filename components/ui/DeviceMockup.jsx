@@ -39,7 +39,7 @@ export default function DeviceMockup({
       <div className="hidden w-full md:block">
         <div className="overflow-hidden rounded-xl border border-border bg-card shadow-2xl ring-1 ring-border">
           <div
-            className="flex items-center gap-2 border-b border-border bg-secondary/80 px-3 py-2.5"
+            className="flex items-center gap-2 border-b border-border bg-muted/80 px-3 py-2.5"
             aria-hidden="true"
           >
             <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />

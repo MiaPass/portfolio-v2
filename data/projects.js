@@ -175,6 +175,12 @@ export const techs = [
     group: "frontend",
   },
   {
+    name: "Redux",
+    logo: "/svg/redux.svg",
+    path: "https://redux.js.org/",
+    group: "frontend",
+  },
+  {
     name: "Dexie",
     logo: "/svg/dexie.svg",
     path: "https://dexie.org/",
@@ -214,12 +220,6 @@ export const techs = [
     name: "Git",
     logo: "/svg/git.svg",
     path: "https://git-scm.com/",
-    group: "tools",
-  },
-  {
-    name: "Redux",
-    logo: "/svg/redux.svg",
-    path: "https://redux.js.org/",
     group: "tools",
   },
   {

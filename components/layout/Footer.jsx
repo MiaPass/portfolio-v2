@@ -38,7 +38,7 @@ export default function Footer() {
             <a
               key={item.href}
               href={item.href}
-              className="text-muted-foreground transition hover:text-primary"
+              className="text-muted-foreground underline-offset-4 transition hover:text-secondary hover:underline hover:decoration-secondary"
             >
               {item.name}
             </a>

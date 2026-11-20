@@ -8,12 +8,14 @@ Visitor success in ~10 seconds: understand who she is (Frontend Developer), see 
 
 ## Visual world
 
-Dark **Tangerine**-inspired theme (palette only; no shadcn/ui).
+Dark **0400AM** theme (shadcnthemer; palette only, no shadcn/ui).
 
-- Night slate-blue surfaces (`oklch` ~262° hue)
-- Primary citrus orange `oklch(0.64 0.17 36.44)` / ~`#df5e3a`
-- Radius `0.75rem`
-- Atmosphere via soft primary glow, not flat black
+- Night purple-slate surfaces (`oklch` ~298° hue)
+- Primary lilac `oklch(0.686 0.143 285.66)`
+- Secondary green `oklch(0.642 0.105 158.02)` (available badge, focus/ring)
+- Accent deep violet `oklch(0.437 0.106 285.26)`
+- Radius `0.625rem`
+- Atmosphere via soft primary glow on the hero mockup only
 
 ## Typography
 
