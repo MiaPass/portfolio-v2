@@ -83,63 +83,59 @@ export default function Hero() {
             });
           }
 
+          const words = split?.words?.length ? split.words : ".hero-headline";
+          const intro = [".hero-badge", words, ".hero-subtitle", ".hero-cta", ".hero-image"];
+
+          gsap.set(intro.flat(), { opacity: 0 });
+          gsap.set([".hero-badge", ".hero-subtitle", ".hero-cta"], {
+            y: motion.distanceMedium,
+          });
+          gsap.set(words, { y: motion.distanceLarge });
+          gsap.set(".hero-image", { scale: motion.scaleLarge });
+
           const tl = gsap.timeline({
             defaults: { ease: motion.easeSmoothOut },
           });
 
-          tl.from(".hero-badge", {
-            opacity: 0,
-            y: motion.distanceMedium,
+          tl.to(".hero-badge", {
+            opacity: 1,
+            y: 0,
             duration: motion.fast,
-          });
-
-          if (split?.words?.length) {
-            tl.from(
-              split.words,
+          })
+            .to(
+              words,
               {
-                opacity: 0,
-                y: motion.distanceLarge,
+                opacity: 1,
+                y: 0,
                 duration: motion.slow,
                 stagger: motion.stagger * 1.5,
               },
               `-=${motion.quick}`,
-            );
-          } else {
-            tl.from(
-              ".hero-headline",
+            )
+            .to(
+              ".hero-subtitle",
               {
-                opacity: 0,
-                y: motion.distanceLarge,
-                duration: motion.slow,
+                opacity: 1,
+                y: 0,
+                duration: motion.medium,
               },
-              `-=${motion.quick}`,
-            );
-          }
-
-          tl.from(
-            ".hero-subtitle",
-            {
-              opacity: 0,
-              y: motion.distanceMedium,
-              duration: motion.medium,
-            },
-            `-=${motion.fast}`,
-          )
-            .from(
+              `-=${motion.fast}`,
+            )
+            .to(
               ".hero-cta",
               {
-                opacity: 0,
-                y: motion.distanceMedium,
+                opacity: 1,
+                y: 0,
                 duration: motion.fast,
                 stagger: motion.stagger * 2,
               },
               `-=${motion.quick}`,
             )
-            .from(
+            .to(
               ".hero-image",
               {
-                opacity: 0,
-                scale: motion.scaleLarge,
+                opacity: 1,
+                scale: 1,
                 duration: motion.slow,
               },
               `-=${motion.medium}`,
@@ -217,10 +213,10 @@ export default function Hero() {
         aria-hidden="true"
       />
 
-      <div className="mx-auto flex min-h-[calc(100vh-4rem)] max-w-7xl flex-col items-center justify-center gap-12 px-6 py-20 md:flex-row md:items-center md:justify-between lg:px-8">
-        <div className="max-w-2xl text-center md:text-left">
+      <div className="mx-auto flex min-h-[calc(100vh-4rem)] max-w-7xl flex-col items-center justify-center gap-8 px-6 py-12 md:flex-row md:items-center md:justify-between md:gap-10 md:py-16 lg:px-8">
+        <div className="max-w-xl text-center md:text-left">
           {profile.available ? (
-            <p className="hero-badge hero-fade mb-6 inline-flex items-center gap-2 rounded-full border border-border/80 bg-card/60 px-3 py-1.5 text-sm text-muted-foreground backdrop-blur-sm">
+            <p className="hero-badge hero-fade mb-4 inline-flex items-center gap-2 rounded-full border border-border/80 bg-card/60 px-3 py-1.5 text-sm text-muted-foreground backdrop-blur-sm">
               <span className="hero-available-dot relative flex h-2 w-2" aria-hidden="true">
                 <span className="hero-available-dot-ping absolute inset-0 rounded-full bg-primary" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
@@ -231,16 +227,16 @@ export default function Hero() {
 
           <h1
             ref={headlineRef}
-            className="hero-headline hero-fade font-display text-4xl font-semibold tracking-tight text-foreground text-balance sm:text-5xl lg:text-6xl"
+            className="hero-headline hero-fade font-display text-3xl font-semibold tracking-tight text-foreground text-balance sm:text-4xl lg:text-5xl"
           >
             {t("headline")}
           </h1>
 
-          <p className="hero-subtitle hero-fade mt-5 text-base text-muted-foreground sm:text-lg">
+          <p className="hero-subtitle hero-fade mt-4 text-base text-muted-foreground sm:text-lg">
             {t("subtitle")}
           </p>
 
-          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row md:justify-start">
+          <div className="mt-7 flex flex-col items-center gap-3 sm:flex-row md:justify-start">
             <MorphLink
               href="#featured"
               onClick={scrollToFeatured}
@@ -262,7 +258,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="hero-image hero-fade w-full max-w-md md:max-w-lg">
+        <div className="hero-image hero-fade w-full max-w-sm shrink-0 md:max-w-md lg:max-w-[26rem]">
           <div className="relative aspect-square">
             <div
               className="absolute -inset-4 -z-10 rounded-[calc(var(--radius)+1rem)] opacity-60 blur-2xl"
@@ -276,7 +272,7 @@ export default function Hero() {
               height={640}
               priority
               className="h-auto w-full object-contain drop-shadow-2xl"
-              sizes="(max-width: 768px) 90vw, 512px"
+              sizes="(max-width: 768px) 80vw, 416px"
             />
           </div>
         </div>
