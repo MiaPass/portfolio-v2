@@ -14,7 +14,12 @@ export const projects = [
     href: pulsoDemoUrl,
     demoUrl: pulsoDemoUrl,
     external: true,
-    media: { type: "image", src: "/projects/pulso/cover.png" },
+    media: { type: "image", src: "/projects/pulso/cover.jpg" },
+    gallery: [
+      "/projects/pulso/image.jpg",
+      "/projects/pulso/image2.jpg",
+      "/projects/pulso/image3.jpg",
+    ],
   },
   {
     id: "reapersquad-accounts",

@@ -47,67 +47,53 @@ function CoverMedia({ project, name }) {
   );
 }
 
-function CaseLinks({ project, t }) {
-  const links = [];
+const linkButtonClass =
+  "inline-flex items-center gap-2 rounded-(--radius) border border-border bg-card/50 px-4 py-2 text-sm font-semibold text-foreground transition hover:border-primary/50 hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring";
 
-  if (project.demoUrl || (project.mode === "link" && project.href)) {
-    links.push({
-      key: "demo",
-      href: project.demoUrl || project.href,
-      label: t("demo"),
-      external: true,
-    });
+function CaseLinks({ project, t, onOpenGallery }) {
+  const hasGallery = Array.isArray(project.gallery) && project.gallery.length > 0;
+  const demoHref = project.demoUrl || (project.mode === "link" ? project.href : null);
+
+  if (!demoHref && !project.repoUrl && !hasGallery && project.mode !== "gallery") {
+    return null;
   }
-
-  if (project.repoUrl) {
-    links.push({
-      key: "repo",
-      href: project.repoUrl,
-      label: t("code"),
-      external: true,
-    });
-  }
-
-  if (project.mode === "gallery") {
-    links.push({
-      key: "gallery",
-      href: `#gallery-${project.id}`,
-      label: t("openGallery"),
-      external: false,
-      gallery: true,
-    });
-  }
-
-  if (!links.length) return null;
 
   return (
     <div className="mt-6 flex flex-wrap gap-3">
-      {links.map((link) =>
-        link.gallery ? (
-          <span
-            key={link.key}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-primary"
-          >
-            <MorphIcon icon={Images} size={16} reducedMotion="user" />
-            {link.label}
-          </span>
-        ) : (
-          <a
-            key={link.key}
-            href={link.href}
-            target={link.external ? "_blank" : undefined}
-            rel={link.external ? "noopener noreferrer" : undefined}
-            className="inline-flex items-center gap-2 rounded-(--radius) border border-border bg-card/50 px-4 py-2 text-sm font-semibold text-foreground transition hover:border-primary/50 hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-          >
-            {link.label}
-            <MorphIcon
-              icon={link.external ? ExternalLink : ArrowUpRight}
-              size={16}
-              reducedMotion="user"
-            />
-          </a>
-        ),
-      )}
+      {demoHref ? (
+        <a
+          href={demoHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={linkButtonClass}
+        >
+          {t("demo")}
+          <MorphIcon icon={ExternalLink} size={16} reducedMotion="user" />
+        </a>
+      ) : null}
+
+      {hasGallery || project.mode === "gallery" ? (
+        <button
+          type="button"
+          onClick={() => onOpenGallery?.(project)}
+          className={linkButtonClass}
+        >
+          {t("viewScreenshots")}
+          <MorphIcon icon={Images} size={16} reducedMotion="user" />
+        </button>
+      ) : null}
+
+      {project.repoUrl ? (
+        <a
+          href={project.repoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={linkButtonClass}
+        >
+          {t("code")}
+          <MorphIcon icon={ArrowUpRight} size={16} reducedMotion="user" />
+        </a>
+      ) : null}
     </div>
   );
 }
@@ -177,20 +163,11 @@ function FeaturedCase({ project, index, onOpenGallery }) {
           {project.techs}
         </p>
 
-        {project.mode === "gallery" ? (
-          <div className="mt-6">
-            <button
-              type="button"
-              onClick={() => onOpenGallery?.(project)}
-              className="inline-flex items-center gap-2 rounded-(--radius) border border-border bg-card/50 px-4 py-2 text-sm font-semibold text-foreground transition hover:border-primary/50 hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-            >
-              {t("openGallery")}
-              <MorphIcon icon={Images} size={16} reducedMotion="user" />
-            </button>
-          </div>
-        ) : (
-          <CaseLinks project={project} t={t} />
-        )}
+        <CaseLinks
+          project={project}
+          t={t}
+          onOpenGallery={onOpenGallery}
+        />
       </div>
     </article>
   );
