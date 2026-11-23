@@ -10,7 +10,7 @@ export const projects = [
     year: 2025,
     kind: "work",
     tags: ["Next", "React"],
-    techs: "Next.js, React, Tailwind CSS, Zustand, Docker, Coolify",
+    techs: "Next.js, React, TailwindCSS, Zustand, Docker, Coolify",
     mode: "link",
     href: "https://accounts.reapersquad.online/",
     demoUrl: "https://accounts.reapersquad.online/",
@@ -24,7 +24,7 @@ export const projects = [
     kind: "personal",
     tags: ["Vue/Nuxt"],
     techs:
-      "Nuxt 3, Pinia, Dexie, NestJS, Prisma, PostgreSQL, PWA, pnpm monorepo",
+      "Nuxt.js, Pinia, Dexie, NestJS, Prisma, PostgreSQL, PWA, pnpm monorepo",
     mode: "link",
     href: pulsoDemoUrl,
     demoUrl: pulsoDemoUrl,
@@ -42,18 +42,29 @@ export const projects = [
     year: 2025,
     kind: "demo",
     tags: ["Next", "Landing", "React"],
-    techs: "Next.js, Tailwind CSS, HeroUI, Framer Motion, Zustand, Vercel",
+    techs: "Next.js, TailwindCSS, HeroUI, Framer Motion, Zustand, Vercel",
     mode: "link",
     href: "https://dashboard-landing-demo.vercel.app/",
     demoUrl: "https://dashboard-landing-demo.vercel.app/",
     external: true,
     media: { type: "image", src: "/projects/dashboard-demo/image.png" },
   },
-  // Other projects — ReaperSquad site first
+  // Other projects (sorted newest → oldest via otherProjects)
+  {
+    id: "construction-site",
+    year: 2026,
+    tags: ["Next", "Landing"],
+    techs: "Next.js, TailwindCSS, Headless UI, Heroicons, Vercel",
+    mode: "link",
+    href: "https://construction-site-liard.vercel.app/",
+    external: true,
+    media: { type: "image", src: "/projects/construction-site/image.png" },
+  },
   {
     id: "reapersquad",
+    year: 2026,
     tags: ["Next", "Landing"],
-    techs: "Next.js, React, Tailwind CSS, Docker, Coolify",
+    techs: "Next.js, React, TailwindCSS, Docker, Coolify",
     mode: "link",
     href: "https://www.reapersquad.online/en",
     external: true,
@@ -61,8 +72,11 @@ export const projects = [
   },
   {
     id: "liquidacion",
+    year: 2025,
+    yearLabel: "2024–2025",
+    client: "DigiChanges",
     tags: ["Next", "React"],
-    techs: "React, Next.js, Tailwind CSS",
+    techs: "React, Next.js, TailwindCSS",
     mode: "gallery",
     media: { type: "image", src: "/projects/liquidacion/cover.png" },
     gallery: [
@@ -74,6 +88,9 @@ export const projects = [
   },
   {
     id: "x28",
+    year: 2025,
+    yearLabel: "2024–2025",
+    client: "DigiChanges",
     tags: ["Vue/Nuxt"],
     techs: "Vue.js, Nuxt.js",
     mode: "link",
@@ -82,7 +99,18 @@ export const projects = [
     media: { type: "image", src: "/projects/x28/cover.png" },
   },
   {
+    id: "tour-landing",
+    year: 2023,
+    tags: ["Landing"],
+    techs: "HTML, CSS, JavaScript, Webpack, Netlify",
+    mode: "link",
+    href: "https://tour-landing-page.netlify.app/",
+    external: true,
+    media: { type: "image", src: "/projects/tour-site/image.png" },
+  },
+  {
     id: "infinity",
+    year: 2022,
     tags: ["React"],
     techs: "React, Redux, CSS, Swiper",
     mode: "link",
@@ -90,16 +118,8 @@ export const projects = [
     media: { type: "video", src: "/projects/infinity/infinity.mp4" },
   },
   {
-    id: "share-it",
-    tags: ["React"],
-    techs: "ReactJs, NodeJs, Mercado Pago, Firebase",
-    mode: "link",
-    href: "https://github.com/henry19ag15/finalproject",
-    external: true,
-    media: { type: "image", src: "/projects/share-it/1.png" },
-  },
-  {
     id: "l2-rossek",
+    year: 2022,
     tags: ["Landing"],
     techs: "HTML, CSS",
     mode: "link",
@@ -108,28 +128,23 @@ export const projects = [
     media: { type: "video", src: "/projects/L2Rossek/l2rossek.mp4" },
   },
   {
-    id: "construction-site",
-    tags: ["Next", "Landing"],
-    techs: "Next.js, Tailwind CSS, Headless UI, Heroicons, Vercel",
+    id: "share-it",
+    year: 2021,
+    tags: ["React"],
+    techs: "React, Node.js, Mercado Pago, Firebase",
     mode: "link",
-    href: "https://construction-site-liard.vercel.app/",
+    href: "https://github.com/henry19ag15/finalproject",
     external: true,
-    media: { type: "image", src: "/projects/construction-site/image.png" },
-  },
-  {
-    id: "tour-landing",
-    tags: ["Landing"],
-    techs: "HTML, CSS, JavaScript, Webpack, Netlify",
-    mode: "link",
-    href: "https://tour-landing-page.netlify.app/",
-    external: true,
-    media: { type: "image", src: "/projects/tour-site/image.png" },
+    media: { type: "image", src: "/projects/share-it/1.png" },
   },
 ];
 
 export const featuredProjects = projects.filter((project) => project.featured);
 
-export const otherProjects = projects.filter((project) => !project.featured);
+export const otherProjects = projects
+  .filter((project) => !project.featured)
+  .slice()
+  .sort((a, b) => (b.year ?? 0) - (a.year ?? 0));
 
 export const techs = [
   {
@@ -217,6 +232,12 @@ export const techs = [
     group: "backend",
   },
   {
+    name: "Supabase",
+    logo: "/svg/supabase.svg",
+    path: "https://supabase.com/",
+    group: "backend",
+  },
+  {
     name: "Git",
     logo: "/svg/git.svg",
     path: "https://git-scm.com/",
@@ -270,7 +291,7 @@ export const experienceIds = [
   {
     id: "freelancer",
     href: "#projects",
-    start: "2023-01",
+    start: "2022-01",
     end: "2026-08",
   },
 ];

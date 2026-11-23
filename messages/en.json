@@ -20,7 +20,7 @@
     "available": "Available for work",
     "viewProjects": "View projects",
     "secondaryCta": "View ReaperSquad",
-    "mockupAlt": "Screenshot of the ReaperSquad website"
+    "mockupAlt": "ReaperSquad website"
   },
   "featured": {
     "title": "Featured work",
@@ -62,19 +62,19 @@
           "Deployed with Docker and Coolify.",
           "Proposed bringing AI skills into the team's development workflow."
         ],
-        "techs": "Next.js, React, Tailwind CSS, Zustand, Docker, Coolify"
+        "techs": "Next.js, React, TailwindCSS, Zustand, Docker, Coolify"
       },
       "digichanges": {
         "title": "DigiChanges",
         "role": "Frontend Developer",
         "desc": "Frontend in a team: client panels and sites with clear UX (Vue/Nuxt, Next/React).",
-        "techs": "Next.js, React, Vue, Nuxt, Tailwind, Node.js"
+        "techs": "Next.js, React, Vue.js, Nuxt.js, TailwindCSS, Node.js"
       },
       "freelancer": {
         "title": "Freelance",
         "role": "Frontend Developer",
-        "desc": "End-to-end landings and interactive web apps. Some of that work is in Projects.",
-        "techs": "React, Next.js, Node.js, Firebase, Tailwind"
+        "desc": "Websites and web apps for clients, built with HTML, CSS, JavaScript, Tailwind, React, Node.js, Express, MongoDB and Supabase. Some projects are under confidentiality.",
+        "techs": "HTML, CSS, JavaScript, TailwindCSS, React, Node.js, Express, MongoDB, Supabase"
       }
     }
   },
