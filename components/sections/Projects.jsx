@@ -5,9 +5,11 @@ import { flushSync } from "react-dom";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { otherProjects, projectFilterTypes } from "@/data/projects";
+import LazyVideo from "@/components/ui/LazyVideo";
 import ProjectGalleryModal from "@/components/ui/ProjectGalleryModal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { formatTechList } from "@/lib/formatTech";
+import { whenNearViewport } from "@/lib/deferMotion";
 import { gsap, useGSAP, ScrollTrigger, Flip } from "@/lib/gsap";
 import { addMotionMatch, fadeInReduced, motion, prefersReducedMotion } from "@/lib/motion";
 
@@ -27,12 +29,9 @@ function ProjectThumb({ project, name }) {
 
   if (project.media.type === "video") {
     return (
-      <video
+      <LazyVideo
         src={project.media.src}
-        autoPlay
-        loop
-        muted
-        playsInline
+        poster={project.media.poster}
         className="h-full w-full object-cover"
       />
     );
@@ -203,44 +202,49 @@ export default function Projects() {
 
   useGSAP(
     () => {
-      const mm = gsap.matchMedia();
+      return whenNearViewport(scope.current, () => {
+        const mm = gsap.matchMedia();
 
-      addMotionMatch(mm, {
-        reduced: () => {
-          fadeInReduced(gsap, ".project-row-shell", {
-            scrollTrigger: {
-              trigger: scope.current,
-              start: "top 80%",
-              once: true,
-            },
-          });
-        },
-        full: () => {
-          const shells = gsap.utils.toArray(".project-row-shell", scope.current);
-          if (!shells.length) return;
-
-          gsap.fromTo(
-            shells,
-            { opacity: 0, y: motion.distanceMedium },
-            {
-              opacity: 1,
-              y: 0,
-              duration: motion.medium,
-              stagger: motion.stagger * 2,
-              ease: motion.easeSmoothOut,
-              immediateRender: false,
+        addMotionMatch(mm, {
+          reduced: () => {
+            fadeInReduced(gsap, ".project-row-shell", {
               scrollTrigger: {
                 trigger: scope.current,
                 start: "top 80%",
                 once: true,
               },
-            },
-          );
-        },
-      });
+            });
+          },
+          full: () => {
+            const shells = gsap.utils.toArray(
+              ".project-row-shell",
+              scope.current,
+            );
+            if (!shells.length) return;
 
-      ScrollTrigger.refresh();
-      return () => mm.revert();
+            gsap.fromTo(
+              shells,
+              { opacity: 0, y: motion.distanceMedium },
+              {
+                opacity: 1,
+                y: 0,
+                duration: motion.medium,
+                stagger: motion.stagger * 2,
+                ease: motion.easeSmoothOut,
+                immediateRender: false,
+                scrollTrigger: {
+                  trigger: scope.current,
+                  start: "top 80%",
+                  once: true,
+                },
+              },
+            );
+          },
+        });
+
+        ScrollTrigger.refresh();
+        return () => mm.revert();
+      });
     },
     { scope },
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { ArrowRight, ArrowUpRight, ExternalLink } from "lucide";
 import { MorphIcon } from "morphicons/react";
@@ -199,11 +200,18 @@ export default function Hero() {
       id="welcome"
       className="relative isolate min-h-[calc(100vh-4rem)] overflow-hidden"
     >
-      <div
-        className="absolute inset-0 -z-20 bg-cover bg-center bg-no-repeat opacity-30"
-        style={{ backgroundImage: "url('/bg.png')" }}
-        aria-hidden="true"
-      />
+      <div className="absolute inset-0 -z-20 opacity-30" aria-hidden="true">
+        <Image
+          src="/bg.webp"
+          alt=""
+          fill
+          priority
+          fetchPriority="high"
+          sizes="100vw"
+          quality={60}
+          className="object-cover object-center"
+        />
+      </div>
       <div
         className="absolute inset-0 -z-10 bg-linear-to-br from-background via-background/95 to-background/80"
         aria-hidden="true"

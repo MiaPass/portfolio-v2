@@ -19,6 +19,10 @@ const mono = JetBrains_Mono({
   display: "swap",
 });
 
+export const metadata = {
+  metadataBase: new URL("https://portfolio-im-passalia.vercel.app"),
+};
+
 export default function RootLayout({ children }) {
   return (
     <html

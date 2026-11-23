@@ -12,15 +12,23 @@ const MAX_TILT = 10;
 export default function Tilt({ children, className = "", max = MAX_TILT }) {
   const rootRef = useRef(null);
   const cardRef = useRef(null);
+  const rectRef = useRef(null);
 
   function reset() {
     const root = rootRef.current;
     const card = cardRef.current;
     if (!root || !card) return;
+    rectRef.current = null;
     root.classList.remove("is-hover");
     card.classList.remove("is-tilting");
     card.style.setProperty("--tilt-rx", "0deg");
     card.style.setProperty("--tilt-ry", "0deg");
+  }
+
+  function cacheRect() {
+    const root = rootRef.current;
+    if (!root) return;
+    rectRef.current = root.getBoundingClientRect();
   }
 
   function track(event) {
@@ -29,11 +37,17 @@ export default function Tilt({ children, className = "", max = MAX_TILT }) {
 
     const root = rootRef.current;
     const card = cardRef.current;
-    if (!root || !card) return;
+    const rect = rectRef.current;
+    if (!root || !card || !rect) return;
 
-    const rect = root.getBoundingClientRect();
-    const px = Math.min(1, Math.max(0, (event.clientX - rect.left) / rect.width));
-    const py = Math.min(1, Math.max(0, (event.clientY - rect.top) / rect.height));
+    const px = Math.min(
+      1,
+      Math.max(0, (event.clientX - rect.left) / rect.width),
+    );
+    const py = Math.min(
+      1,
+      Math.max(0, (event.clientY - rect.top) / rect.height),
+    );
 
     root.classList.add("is-hover");
     card.classList.add("is-tilting");
@@ -47,6 +61,7 @@ export default function Tilt({ children, className = "", max = MAX_TILT }) {
     <div
       ref={rootRef}
       className={`t-tilt ${className}`}
+      onPointerEnter={cacheRect}
       onPointerMove={track}
       onPointerLeave={(event) => {
         if (event.pointerType === "mouse") reset();

@@ -6,22 +6,21 @@ import { useTranslations } from "next-intl";
 import { ArrowUpRight, ExternalLink, Images } from "lucide";
 import { MorphIcon } from "morphicons/react";
 import { featuredProjects } from "@/data/projects";
+import LazyVideo from "@/components/ui/LazyVideo";
 import Tilt from "@/components/ui/Tilt";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ProjectGalleryModal from "@/components/ui/ProjectGalleryModal";
 import { formatTechList } from "@/lib/formatTech";
+import { whenNearViewport } from "@/lib/deferMotion";
 import { gsap, useGSAP, ScrollTrigger } from "@/lib/gsap";
 import { addMotionMatch, fadeInReduced, motion } from "@/lib/motion";
 
 function CoverMedia({ project, name }) {
   if (project.media?.type === "video") {
     return (
-      <video
+      <LazyVideo
         src={project.media.src}
-        autoPlay
-        loop
-        muted
-        playsInline
+        poster={project.media.poster}
         className="featured-cover-media h-full w-full scale-110 object-cover"
       />
     );
@@ -70,7 +69,9 @@ function CaseLinks({ project, t, onOpenGallery }) {
           className={linkButtonClass}
         >
           {t("demo")}
-          <MorphIcon icon={ExternalLink} size={16} reducedMotion="user" />
+          <span aria-hidden="true">
+            <MorphIcon icon={ExternalLink} size={16} reducedMotion="user" />
+          </span>
         </a>
       ) : null}
 
@@ -79,9 +80,12 @@ function CaseLinks({ project, t, onOpenGallery }) {
           type="button"
           onClick={() => onOpenGallery?.(project)}
           className={linkButtonClass}
+          aria-label={t("viewScreenshots")}
         >
           {t("viewScreenshots")}
-          <MorphIcon icon={Images} size={16} reducedMotion="user" />
+          <span aria-hidden="true">
+            <MorphIcon icon={Images} size={16} reducedMotion="user" />
+          </span>
         </button>
       ) : null}
 
@@ -93,7 +97,9 @@ function CaseLinks({ project, t, onOpenGallery }) {
           className={linkButtonClass}
         >
           {t("code")}
-          <MorphIcon icon={ArrowUpRight} size={16} reducedMotion="user" />
+          <span aria-hidden="true">
+            <MorphIcon icon={ArrowUpRight} size={16} reducedMotion="user" />
+          </span>
         </a>
       ) : null}
     </div>
@@ -219,83 +225,85 @@ export default function FeaturedProjects() {
 
   useGSAP(
     () => {
-      const mm = gsap.matchMedia();
-      const cases = gsap.utils.toArray(".featured-case", scope.current);
+      return whenNearViewport(scope.current, () => {
+        const mm = gsap.matchMedia();
+        const cases = gsap.utils.toArray(".featured-case", scope.current);
 
-      addMotionMatch(mm, {
-        reduced: () => {
-          fadeInReduced(gsap, cases, {
-            scrollTrigger: {
-              trigger: scope.current,
-              start: "top 80%",
-              once: true,
-            },
-          });
-        },
-        full: () => {
-          cases.forEach((caseEl) => {
-            const cover = caseEl.querySelector(".featured-cover-clip");
-            const media = caseEl.querySelector(".featured-cover-media");
-            const copy = caseEl.querySelector(".featured-copy");
+        addMotionMatch(mm, {
+          reduced: () => {
+            fadeInReduced(gsap, cases, {
+              scrollTrigger: {
+                trigger: scope.current,
+                start: "top 80%",
+                once: true,
+              },
+            });
+          },
+          full: () => {
+            cases.forEach((caseEl) => {
+              const cover = caseEl.querySelector(".featured-cover-clip");
+              const media = caseEl.querySelector(".featured-cover-media");
+              const copy = caseEl.querySelector(".featured-copy");
 
-            if (cover) {
-              gsap.fromTo(
-                cover,
-                { clipPath: "inset(8% 8% 8% 8% round 12px)", opacity: 0.5 },
-                {
-                  clipPath: "inset(0% 0% 0% 0% round 12px)",
-                  opacity: 1,
-                  duration: motion.slow,
-                  ease: motion.easeSmoothOut,
-                  scrollTrigger: {
-                    trigger: caseEl,
-                    start: "top 75%",
-                    once: true,
+              if (cover) {
+                gsap.fromTo(
+                  cover,
+                  { clipPath: "inset(8% 8% 8% 8% round 12px)", opacity: 0.5 },
+                  {
+                    clipPath: "inset(0% 0% 0% 0% round 12px)",
+                    opacity: 1,
+                    duration: motion.slow,
+                    ease: motion.easeSmoothOut,
+                    scrollTrigger: {
+                      trigger: caseEl,
+                      start: "top 75%",
+                      once: true,
+                    },
                   },
-                },
-              );
-            }
+                );
+              }
 
-            if (media && caseEl.classList.contains("featured-case--lead")) {
-              gsap.fromTo(
-                media,
-                { yPercent: -4 },
-                {
-                  yPercent: 4,
-                  ease: "none",
-                  scrollTrigger: {
-                    trigger: caseEl,
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: true,
+              if (media && caseEl.classList.contains("featured-case--lead")) {
+                gsap.fromTo(
+                  media,
+                  { yPercent: -4 },
+                  {
+                    yPercent: 4,
+                    ease: "none",
+                    scrollTrigger: {
+                      trigger: caseEl,
+                      start: "top bottom",
+                      end: "bottom top",
+                      scrub: true,
+                    },
                   },
-                },
-              );
-            }
+                );
+              }
 
-            if (copy) {
-              gsap.fromTo(
-                copy,
-                { opacity: 0, y: motion.distanceLarge },
-                {
-                  opacity: 1,
-                  y: 0,
-                  duration: motion.medium,
-                  ease: motion.easeSmoothOut,
-                  scrollTrigger: {
-                    trigger: caseEl,
-                    start: "top 70%",
-                    once: true,
+              if (copy) {
+                gsap.fromTo(
+                  copy,
+                  { opacity: 0, y: motion.distanceLarge },
+                  {
+                    opacity: 1,
+                    y: 0,
+                    duration: motion.medium,
+                    ease: motion.easeSmoothOut,
+                    scrollTrigger: {
+                      trigger: caseEl,
+                      start: "top 70%",
+                      once: true,
+                    },
                   },
-                },
-              );
-            }
-          });
-        },
+                );
+              }
+            });
+          },
+        });
+
+        ScrollTrigger.refresh();
+        return () => mm.revert();
       });
-
-      ScrollTrigger.refresh();
-      return () => mm.revert();
     },
     { scope },
   );

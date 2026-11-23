@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { ArrowUp } from "lucide";
 import { MorphIcon } from "morphicons/react";
 import { profile } from "@/data/profile";
+import { whenNearViewport } from "@/lib/deferMotion";
 import { gsap, useGSAP, ScrollToPlugin } from "@/lib/gsap";
 import { addMotionMatch, motion, prefersReducedMotion } from "@/lib/motion";
 
@@ -84,31 +85,33 @@ export default function Footer() {
       const root = nameRef.current;
       if (!root) return undefined;
 
-      const letters = root.querySelectorAll(".footer-letter");
-      const mm = gsap.matchMedia();
+      return whenNearViewport(root, () => {
+        const letters = root.querySelectorAll(".footer-letter");
+        const mm = gsap.matchMedia();
 
-      addMotionMatch(mm, {
-        reduced: () => {
-          gsap.set(letters, { clearProps: "transform", opacity: 0.35, y: 0 });
-        },
-        full: () => {
-          gsap.set(letters, { y: "0.55em", opacity: 0 });
-          gsap.to(letters, {
-            y: 0,
-            opacity: 0.35,
-            duration: motion.medium,
-            stagger: motion.stagger,
-            ease: motion.easeSmoothOut,
-            scrollTrigger: {
-              trigger: root,
-              start: "top 90%",
-              once: true,
-            },
-          });
-        },
+        addMotionMatch(mm, {
+          reduced: () => {
+            gsap.set(letters, { clearProps: "transform", opacity: 0.35, y: 0 });
+          },
+          full: () => {
+            gsap.set(letters, { y: "0.55em", opacity: 0 });
+            gsap.to(letters, {
+              y: 0,
+              opacity: 0.35,
+              duration: motion.medium,
+              stagger: motion.stagger,
+              ease: motion.easeSmoothOut,
+              scrollTrigger: {
+                trigger: root,
+                start: "top 90%",
+                once: true,
+              },
+            });
+          },
+        });
+
+        return () => mm.revert();
       });
-
-      return () => mm.revert();
     },
     { scope: nameRef },
   );

@@ -6,6 +6,7 @@ import { experienceIds } from "@/data/projects";
 import { formatMonthYear } from "@/lib/formatDate";
 import { formatTechList } from "@/lib/formatTech";
 import SectionHeading from "@/components/ui/SectionHeading";
+import { whenNearViewport } from "@/lib/deferMotion";
 import { gsap, useGSAP, ScrollTrigger } from "@/lib/gsap";
 import { addMotionMatch, fadeInReduced, motion } from "@/lib/motion";
 
@@ -17,61 +18,63 @@ export default function ExperienceTimeline() {
 
   useGSAP(
     () => {
-      const mm = gsap.matchMedia();
-      const line = scope.current?.querySelector(".exp-line-progress");
-      const items = gsap.utils.toArray(".exp-item", scope.current);
+      return whenNearViewport(scope.current, () => {
+        const mm = gsap.matchMedia();
+        const line = scope.current?.querySelector(".exp-line-progress");
+        const items = gsap.utils.toArray(".exp-item", scope.current);
 
-      addMotionMatch(mm, {
-        reduced: () => {
-          if (line) gsap.set(line, { scaleY: 1 });
-          fadeInReduced(gsap, items, {
-            scrollTrigger: {
-              trigger: scope.current,
-              start: "top 75%",
-              once: true,
-            },
-          });
-        },
-        full: () => {
-          if (line) {
-            gsap.fromTo(
-              line,
-              { scaleY: 0 },
-              {
-                scaleY: 1,
-                ease: "none",
-                scrollTrigger: {
-                  trigger: scope.current?.querySelector(".exp-track"),
-                  start: "top 70%",
-                  end: "bottom 30%",
-                  scrub: true,
-                },
+        addMotionMatch(mm, {
+          reduced: () => {
+            if (line) gsap.set(line, { scaleY: 1 });
+            fadeInReduced(gsap, items, {
+              scrollTrigger: {
+                trigger: scope.current,
+                start: "top 75%",
+                once: true,
               },
-            );
-          }
+            });
+          },
+          full: () => {
+            if (line) {
+              gsap.fromTo(
+                line,
+                { scaleY: 0 },
+                {
+                  scaleY: 1,
+                  ease: "none",
+                  scrollTrigger: {
+                    trigger: scope.current?.querySelector(".exp-track"),
+                    start: "top 70%",
+                    end: "bottom 30%",
+                    scrub: true,
+                  },
+                },
+              );
+            }
 
-          items.forEach((item) => {
-            gsap.fromTo(
-              item,
-              { opacity: 0, y: motion.distanceLarge },
-              {
-                opacity: 1,
-                y: 0,
-                duration: motion.medium,
-                ease: motion.easeSmoothOut,
-                scrollTrigger: {
-                  trigger: item,
-                  start: "top 80%",
-                  once: true,
+            items.forEach((item) => {
+              gsap.fromTo(
+                item,
+                { opacity: 0, y: motion.distanceLarge },
+                {
+                  opacity: 1,
+                  y: 0,
+                  duration: motion.medium,
+                  ease: motion.easeSmoothOut,
+                  scrollTrigger: {
+                    trigger: item,
+                    start: "top 80%",
+                    once: true,
+                  },
                 },
-              },
-            );
-          });
-        },
+              );
+            });
+          },
+        });
+
+        ScrollTrigger.refresh();
+        return () => mm.revert();
       });
-
-      ScrollTrigger.refresh();
-      return () => mm.revert();
     },
     { scope },
   );

@@ -125,7 +125,11 @@ export const projects = [
     techs: "React, Redux, CSS, Swiper",
     mode: "link",
     href: "#projects",
-    media: { type: "video", src: "/projects/infinity/infinity.mp4" },
+    media: {
+      type: "video",
+      src: "/projects/infinity/infinity.mp4",
+      poster: "/projects/infinity/poster.jpg",
+    },
   },
   {
     id: "l2-rossek",
@@ -135,7 +139,11 @@ export const projects = [
     mode: "link",
     href: "https://l2rossek.com/donate/index.html",
     external: true,
-    media: { type: "video", src: "/projects/L2Rossek/l2rossek.mp4" },
+    media: {
+      type: "video",
+      src: "/projects/L2Rossek/l2rossek.mp4",
+      poster: "/projects/L2Rossek/poster.jpg",
+    },
   },
   {
     id: "share-it",

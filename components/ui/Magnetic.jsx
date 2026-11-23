@@ -12,13 +12,20 @@ export default function Magnetic({
   ...props
 }) {
   const ref = useRef(null);
+  const rectRef = useRef(null);
+
+  function cacheRect() {
+    const el = ref.current;
+    if (!el) return;
+    rectRef.current = el.getBoundingClientRect();
+  }
 
   function onMove(event) {
     if (prefersReducedMotion()) return;
     if (window.matchMedia("(pointer: coarse)").matches) return;
     const el = ref.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
+    const rect = rectRef.current;
+    if (!el || !rect) return;
     const x = event.clientX - rect.left - rect.width / 2;
     const y = event.clientY - rect.top - rect.height / 2;
     el.style.transform = `translate(${x * strength}px, ${y * strength}px)`;
@@ -27,6 +34,7 @@ export default function Magnetic({
   function onLeave() {
     const el = ref.current;
     if (!el) return;
+    rectRef.current = null;
     el.style.transform = "translate(0px, 0px)";
   }
 
@@ -34,6 +42,7 @@ export default function Magnetic({
     <Tag
       ref={ref}
       className={`magnetic-target ${className}`}
+      onPointerEnter={cacheRect}
       onPointerMove={onMove}
       onPointerLeave={onLeave}
       {...props}

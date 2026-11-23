@@ -32,9 +32,11 @@ export async function generateMetadata({ params }) {
       description: t("description"),
     },
     alternates: {
+      canonical: `/${locale}`,
       languages: {
-        es: "/es",
-        en: "/en",
+        es: "https://portfolio-im-passalia.vercel.app/es",
+        en: "https://portfolio-im-passalia.vercel.app/en",
+        "x-default": "https://portfolio-im-passalia.vercel.app/es",
       },
     },
   };

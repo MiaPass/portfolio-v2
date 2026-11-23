@@ -92,29 +92,37 @@ function MarqueeRow({ items, reverse = false }) {
     const measure = measureRef.current;
     if (!container || !measure) return undefined;
 
+    let raf = 0;
     const update = () => {
-      if (prefersReducedMotion()) {
-        setAnimating(false);
-        setCopies(1);
-        return;
-      }
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        if (prefersReducedMotion()) {
+          setAnimating(false);
+          setCopies(1);
+          return;
+        }
 
-      const containerW = container.clientWidth;
-      const setW = measure.scrollWidth;
-      if (!containerW || !setW || setW < containerW) {
-        setAnimating(false);
-        setCopies(1);
-        return;
-      }
+        // Read layout in one frame, then schedule state writes.
+        const containerW = container.clientWidth;
+        const setW = measure.scrollWidth;
+        if (!containerW || !setW || setW < containerW) {
+          setAnimating(false);
+          setCopies(1);
+          return;
+        }
 
-      setCopies(Math.max(1, Math.ceil(containerW / setW)));
-      setAnimating(true);
+        setCopies(Math.max(1, Math.ceil(containerW / setW)));
+        setAnimating(true);
+      });
     };
 
     update();
     const ro = new ResizeObserver(update);
     ro.observe(container);
-    return () => ro.disconnect();
+    return () => {
+      cancelAnimationFrame(raf);
+      ro.disconnect();
+    };
   }, [items, reduceMotion]);
 
   const trackItems = useMemo(
