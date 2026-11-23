@@ -72,6 +72,15 @@ export const projects = [
     media: { type: "image", src: "/projects/reapersquad/cover.png" },
   },
   {
+    id: "next-experience",
+    year: 2025,
+    yearLabel: "2021–2022 · 2024–2025",
+    type: "webapp",
+    techs: "Next.js, React, TailwindCSS, Supabase",
+    mode: "static",
+    media: { type: "placeholder" },
+  },
+  {
     id: "liquidacion",
     year: 2025,
     yearLabel: "2024–2025",

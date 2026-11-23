@@ -12,10 +12,15 @@ import { gsap, useGSAP, ScrollTrigger, Flip } from "@/lib/gsap";
 import { addMotionMatch, fadeInReduced, motion, prefersReducedMotion } from "@/lib/motion";
 
 function ProjectThumb({ project, name }) {
-  if (!project.media) {
+  if (!project.media || project.media.type === "placeholder") {
     return (
-      <div className="flex h-full w-full items-center justify-center bg-muted text-sm font-medium text-muted-foreground">
-        {name.charAt(0)}
+      <div className="flex h-full w-full items-center justify-center bg-[var(--surface-elevated)] px-2 text-center">
+        <span
+          className="text-[11px] font-medium leading-tight text-muted-foreground md:text-[10px]"
+          style={{ fontFamily: "var(--font-body), system-ui, sans-serif" }}
+        >
+          {name}
+        </span>
       </div>
     );
   }
@@ -44,20 +49,26 @@ function ProjectThumb({ project, name }) {
   );
 }
 
-function ProjectRowContent({ project, name, desc }) {
+function ProjectRowContent({ project, name, desc, interactive }) {
   const year = project.yearLabel || project.year;
   const stack = formatTechList(project.techs);
 
   return (
     <>
       {/* Mobile: thumb first (order-1). Desktop: last column (order-5). */}
-      <div className="relative order-1 aspect-[16/10] w-full overflow-hidden rounded-[4px] bg-muted md:order-5 md:aspect-auto md:h-[75px] md:w-[120px] md:justify-self-end">
+      <div
+        className={`relative order-1 aspect-[16/10] w-full overflow-hidden rounded-[4px] md:order-5 md:aspect-auto md:h-[75px] md:w-[120px] md:justify-self-end ${
+          project.media?.type === "placeholder" || !project.media
+            ? "bg-[var(--surface-elevated)]"
+            : "bg-muted"
+        }`}
+      >
         <ProjectThumb project={project} name={name} />
       </div>
 
       <div className="order-2 mt-4 flex items-baseline gap-3 md:mt-0 md:contents">
         {year ? (
-          <span className="shrink-0 font-mono text-xs tracking-wide text-muted-foreground md:text-sm">
+          <span className="shrink-0 font-mono text-xs leading-snug tracking-wide text-muted-foreground md:text-sm">
             {year}
           </span>
         ) : (
@@ -65,16 +76,22 @@ function ProjectRowContent({ project, name, desc }) {
         )}
 
         <h3
-          className="min-w-0 text-base font-medium text-foreground transition-colors duration-(--duration-fast) group-hover:text-secondary group-hover:underline group-hover:underline-offset-4 group-focus-visible:text-secondary group-focus-visible:underline group-focus-visible:underline-offset-4 md:text-[15px]"
+          className={`min-w-0 text-base font-medium text-foreground md:text-[15px] ${
+            interactive
+              ? "transition-colors duration-(--duration-fast) group-hover:text-secondary group-hover:underline group-hover:underline-offset-4 group-focus-visible:text-secondary group-focus-visible:underline group-focus-visible:underline-offset-4"
+              : ""
+          }`}
           style={{ fontFamily: "var(--font-body), system-ui, sans-serif" }}
         >
           {name}
-          <span
-            aria-hidden
-            className="ml-1.5 inline-block translate-y-px text-secondary opacity-0 transition-opacity duration-(--duration-fast) group-hover:opacity-100 group-focus-visible:opacity-100 motion-reduce:transition-none"
-          >
-            ↗
-          </span>
+          {interactive ? (
+            <span
+              aria-hidden
+              className="ml-1.5 inline-block translate-y-px text-secondary opacity-0 transition-opacity duration-(--duration-fast) group-hover:opacity-100 group-focus-visible:opacity-100 motion-reduce:transition-none"
+            >
+              ↗
+            </span>
+          ) : null}
         </h3>
       </div>
 
@@ -89,17 +106,30 @@ function ProjectRowContent({ project, name, desc }) {
   );
 }
 
-const rowClassName =
-  "project-row group flex w-full flex-col border-b border-border py-5 text-left transition-[border-color] duration-(--duration-fast) ease-(--ease-smooth-out) hover:border-primary focus-visible:border-primary focus-visible:outline-none motion-reduce:transition-none md:grid md:grid-cols-[5.5rem_minmax(9rem,1.15fr)_minmax(11rem,1.4fr)_minmax(7rem,0.95fr)_7.5rem] md:items-center md:gap-x-6 md:py-4";
+const rowInteractiveClass =
+  "project-row group flex w-full flex-col border-b border-border py-5 text-left transition-[border-color] duration-(--duration-fast) ease-(--ease-smooth-out) hover:border-primary focus-visible:border-primary focus-visible:outline-none motion-reduce:transition-none md:grid md:grid-cols-[minmax(9rem,11rem)_minmax(9rem,1.15fr)_minmax(11rem,1.4fr)_minmax(7rem,0.95fr)_7.5rem] md:items-center md:gap-x-6 md:py-4";
+
+const rowStaticClass =
+  "project-row flex w-full flex-col border-b border-border py-5 text-left md:grid md:grid-cols-[minmax(9rem,11rem)_minmax(9rem,1.15fr)_minmax(11rem,1.4fr)_minmax(7rem,0.95fr)_7.5rem] md:items-center md:gap-x-6 md:py-4";
 
 function ProjectRow({ project, onOpenGallery }) {
   const t = useTranslations("projects");
   const name = t(`items.${project.id}.name`);
   const desc = t(`items.${project.id}.desc`);
+  const interactive = project.mode !== "static";
 
   const content = (
-    <ProjectRowContent project={project} name={name} desc={desc} />
+    <ProjectRowContent
+      project={project}
+      name={name}
+      desc={desc}
+      interactive={interactive}
+    />
   );
+
+  if (project.mode === "static") {
+    return <div className={rowStaticClass}>{content}</div>;
+  }
 
   if (project.mode === "gallery") {
     return (
@@ -107,7 +137,7 @@ function ProjectRow({ project, onOpenGallery }) {
         type="button"
         onClick={() => onOpenGallery(project)}
         aria-label={`${t("openGallery")}: ${name}`}
-        className={rowClassName}
+        className={rowInteractiveClass}
       >
         {content}
       </button>
@@ -119,7 +149,7 @@ function ProjectRow({ project, onOpenGallery }) {
       href={project.href}
       target={project.external ? "_blank" : undefined}
       rel={project.external ? "noopener noreferrer" : undefined}
-      className={rowClassName}
+      className={rowInteractiveClass}
     >
       {content}
     </a>

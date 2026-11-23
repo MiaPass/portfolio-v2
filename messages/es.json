@@ -136,6 +136,10 @@
         "name": "Share It",
         "desc": "App para compartir contenido con pagos integrados."
       },
+      "next-experience": {
+        "name": "Next Experience",
+        "desc": "Proyecto open source en el que colaboré; lo retomé durante mi etapa en DigiChanges. Hoy el repositorio es privado."
+      },
       "l2-rossek": {
         "name": "L2 Rossek",
         "desc": "Landing page para servidor de juego."

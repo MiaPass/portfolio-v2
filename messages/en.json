@@ -136,6 +136,10 @@
         "name": "Share It",
         "desc": "Content-sharing app with integrated payments."
       },
+      "next-experience": {
+        "name": "Next Experience",
+        "desc": "Open source project I contributed to; I picked it back up during my time at DigiChanges. The repository is now private."
+      },
       "l2-rossek": {
         "name": "L2 Rossek",
         "desc": "Landing page for a game server."
