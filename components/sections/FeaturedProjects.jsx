@@ -169,7 +169,7 @@ function CaseBody({ project, dense = false }) {
   );
 }
 
-function PulsoCase({ project, onOpenGallery }) {
+function LeadCase({ project, onOpenGallery }) {
   const t = useTranslations("projects");
   const name = t(`items.${project.id}.name`);
 
@@ -311,7 +311,7 @@ export default function FeaturedProjects() {
 
         <div className="mt-14 space-y-20 lg:space-y-28">
           {lead ? (
-            <PulsoCase project={lead} onOpenGallery={setGalleryProject} />
+            <LeadCase project={lead} onOpenGallery={setGalleryProject} />
           ) : null}
 
           {rest.length ? (

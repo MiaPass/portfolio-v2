@@ -5,6 +5,19 @@ export const projectFilterTags = ["React", "Vue/Nuxt", "Next", "Landing"];
 
 export const projects = [
   {
+    id: "reapersquad-accounts",
+    featured: true,
+    year: 2025,
+    kind: "work",
+    tags: ["Next", "React"],
+    techs: "Next.js, React, Tailwind CSS, Zustand, Docker, Coolify",
+    mode: "link",
+    href: "https://accounts.reapersquad.online/",
+    demoUrl: "https://accounts.reapersquad.online/",
+    external: true,
+    media: { type: "image", src: "/projects/reapersquad-accounts/cover.png" },
+  },
+  {
     id: "pulso",
     featured: true,
     year: 2026,
@@ -22,19 +35,6 @@ export const projects = [
       "/projects/pulso/image2.jpg",
       "/projects/pulso/image3.jpg",
     ],
-  },
-  {
-    id: "reapersquad-accounts",
-    featured: true,
-    year: 2025,
-    kind: "work",
-    tags: ["Next", "React"],
-    techs: "Next.js, React, Tailwind CSS, Zustand, Docker, Coolify",
-    mode: "link",
-    href: "https://accounts.reapersquad.online/",
-    demoUrl: "https://accounts.reapersquad.online/",
-    external: true,
-    media: { type: "image", src: "/projects/reapersquad-accounts/cover.png" },
   },
   {
     id: "dashboard-landing",

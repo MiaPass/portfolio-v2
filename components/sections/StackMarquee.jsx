@@ -1,6 +1,6 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
+import { useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { useTranslations } from "next-intl";
 import Reveal from "@/components/motion/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -23,6 +23,8 @@ function useReducedMotion() {
 
 const pillClass =
   "stack-tech group/tech inline-flex shrink-0 items-center gap-2 rounded-full border border-transparent bg-card px-3.5 py-2 text-muted-foreground transition-[color,border-color] duration-(--duration-fast) hover:border-secondary hover:text-secondary focus-visible:border-secondary focus-visible:text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring";
+
+const setClass = "flex w-max shrink-0 items-center gap-3 pe-3";
 
 function TechItem({ tech, decorative = false }) {
   const content = (
@@ -58,19 +60,21 @@ function TechItem({ tech, decorative = false }) {
   );
 }
 
-function TechSet({ items, decorative = false }) {
+function buildTrackItems(items, copies) {
+  const track = [];
+  for (let copy = 0; copy < copies; copy += 1) {
+    for (const tech of items) {
+      track.push({ tech, copy });
+    }
+  }
+  return track;
+}
+
+function StaticRow({ items }) {
   return (
-    <div
-      className="flex w-max shrink-0 items-center gap-3 pe-3"
-      aria-hidden={decorative ? true : undefined}
-      inert={decorative || undefined}
-    >
+    <div className="flex w-full flex-wrap gap-3 py-2">
       {items.map((tech) => (
-        <TechItem
-          key={decorative ? `clone-${tech.name}` : tech.name}
-          tech={tech}
-          decorative={decorative}
-        />
+        <TechItem key={tech.name} tech={tech} />
       ))}
     </div>
   );
@@ -78,27 +82,90 @@ function TechSet({ items, decorative = false }) {
 
 function MarqueeRow({ items, reverse = false }) {
   const reduceMotion = useReducedMotion();
+  const containerRef = useRef(null);
+  const measureRef = useRef(null);
+  const [animating, setAnimating] = useState(false);
+  const [copies, setCopies] = useState(1);
 
-  if (reduceMotion) {
-    return (
-      <div className="flex flex-wrap gap-3 py-2">
-        {items.map((tech) => (
-          <TechItem key={tech.name} tech={tech} />
-        ))}
-      </div>
-    );
-  }
+  useLayoutEffect(() => {
+    const container = containerRef.current;
+    const measure = measureRef.current;
+    if (!container || !measure) return undefined;
+
+    const update = () => {
+      if (prefersReducedMotion()) {
+        setAnimating(false);
+        setCopies(1);
+        return;
+      }
+
+      const containerW = container.clientWidth;
+      const setW = measure.scrollWidth;
+      if (!containerW || !setW || setW < containerW) {
+        setAnimating(false);
+        setCopies(1);
+        return;
+      }
+
+      setCopies(Math.max(1, Math.ceil(containerW / setW)));
+      setAnimating(true);
+    };
+
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(container);
+    return () => ro.disconnect();
+  }, [items, reduceMotion]);
+
+  const trackItems = useMemo(
+    () => buildTrackItems(items, copies),
+    [items, copies],
+  );
 
   return (
-    <div className="stack-marquee group relative overflow-hidden py-2">
+    <div ref={containerRef} className="relative w-full">
+      {/* Off-screen one-set measure (same gap/pills as the track) */}
       <div
-        className={`stack-marquee-track flex w-max ${
-          reverse ? "stack-marquee-track--reverse" : ""
-        }`}
+        className="pointer-events-none fixed top-0 -left-[9999px] -z-10"
+        aria-hidden="true"
       >
-        <TechSet items={items} />
-        <TechSet items={items} decorative />
+        <div ref={measureRef} className={setClass}>
+          {items.map((tech) => (
+            <TechItem key={`measure-${tech.name}`} tech={tech} decorative />
+          ))}
+        </div>
       </div>
+
+      {!animating || reduceMotion ? (
+        <StaticRow items={items} />
+      ) : (
+        <div className="stack-marquee group relative w-full overflow-hidden py-2">
+          <div
+            className={`stack-marquee-track flex w-max ${
+              reverse ? "stack-marquee-track--reverse" : ""
+            }`}
+          >
+            <div className={setClass}>
+              {trackItems.map(({ tech, copy }) => (
+                <TechItem
+                  key={`a-${copy}-${tech.name}`}
+                  tech={tech}
+                  decorative={copy > 0}
+                />
+              ))}
+            </div>
+            <div className={setClass} aria-hidden="true" inert>
+              {trackItems.map(({ tech, copy }) => (
+                <TechItem
+                  key={`b-${copy}-${tech.name}`}
+                  tech={tech}
+                  decorative
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

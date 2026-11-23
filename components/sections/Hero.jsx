@@ -7,9 +7,14 @@ import { MorphIcon } from "morphicons/react";
 import { gsap, useGSAP, SplitText, ScrollToPlugin } from "@/lib/gsap";
 import { addMotionMatch, fadeInReduced, motion } from "@/lib/motion";
 import { profile } from "@/data/profile";
-import { pulsoDemoUrl } from "@/data/projects";
 import DeviceMockup from "@/components/ui/DeviceMockup";
 import Magnetic from "@/components/ui/Magnetic";
+
+/** Hero showcase: ReaperSquad company homepage */
+const heroShowcase = {
+  href: "https://www.reapersquad.online/en",
+  mockupSrc: "/projects/reapersquad/cover.png",
+};
 
 function MorphLink({
   href,
@@ -258,13 +263,13 @@ export default function Hero() {
               </MorphLink>
             </Magnetic>
             <MorphLink
-              href={pulsoDemoUrl}
+              href={heroShowcase.href}
               external
               className="hero-cta hero-fade inline-flex items-center gap-2 rounded-(--radius) border border-border px-6 py-3 text-base font-semibold text-foreground transition hover:border-foreground/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
               idleIcon={ExternalLink}
               hoverIcon={ArrowUpRight}
             >
-              {t("tryPulso")}
+              {t("secondaryCta")}
             </MorphLink>
           </div>
         </div>
@@ -277,7 +282,7 @@ export default function Hero() {
               aria-hidden="true"
             />
             <DeviceMockup
-              src="/projects/pulso/image.jpg"
+              src={heroShowcase.mockupSrc}
               alt={t("mockupAlt")}
               priority
             />

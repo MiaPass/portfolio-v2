@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Mia Passalia | Desarrolladora Frontend",
-    "description": "Portafolio de Mia Passalia, desarrolladora frontend con base fullstack en Node/Express."
+    "title": "Mia Passalia | Desarrolladora Full Stack",
+    "description": "Portafolio de Mia Passalia, desarrolladora full stack con foco en frontend y backend en Node/Express."
   },
   "nav": {
     "home": "Inicio",
@@ -16,11 +16,11 @@
   },
   "welcome": {
     "headline": "Diseño y desarrollo paneles, sitios y apps web de punta a punta.",
-    "subtitle": "Desarrolladora Frontend con base en Node y Express. Vue, Nuxt, React y Next.",
+    "subtitle": "Desarrolladora full stack con foco en frontend y backend en Node/Express. Vue, Nuxt, React y Next.",
     "available": "Disponible para trabajar",
     "viewProjects": "Ver proyectos",
-    "tryPulso": "Probar Pulso",
-    "mockupAlt": "Captura de Pulso, app de finanzas personales"
+    "secondaryCta": "Ver ReaperSquad",
+    "mockupAlt": "Captura del sitio de ReaperSquad"
   },
   "featured": {
     "title": "Proyectos destacados",
@@ -36,7 +36,7 @@
   },
   "about": {
     "title": "Sobre mí",
-    "line1": "Soy {name}, tengo {age} años y soy de Argentina. Desde 2021 trabajo en productos web con foco en frontend.",
+    "line1": "Soy {name}, tengo {age} años y soy de Argentina. Empecé a programar en 2021 con el bootcamp de Henry.",
     "line2": "Construyo interfaces en React, Next, Vue y Nuxt, con base en Node/Express cuando el producto lo pide.",
     "line3": "Me interesa que las apps sean rápidas, accesibles y fáciles de usar. Pulso es el ejemplo más reciente.",
     "line4": "Fuera del código: videojuegos, cine y pesca. Paciencia entrenada en los tres."
@@ -56,7 +56,12 @@
       "reapersquad": {
         "title": "ReaperSquad",
         "role": "Frontend Developer",
-        "desc": "Desarrollo el sitio de la empresa y el panel de cuentas (auth y gestión de usuarios), con deploy en Docker y Coolify.",
+        "bullets": [
+          "Desarrollo del sitio institucional de la empresa.",
+          "Panel de cuentas: autenticación y gestión de usuarios.",
+          "Deploy con Docker y Coolify.",
+          "Propuse incorporar skills de IA al flujo de desarrollo del equipo."
+        ],
         "techs": "Next.js, React, Tailwind CSS, Zustand, Docker, Coolify"
       },
       "digichanges": {
@@ -160,6 +165,18 @@
     "downloadCv": "Descargar CV"
   },
   "footer": {
-    "copy": "Ianina Mia Passalia"
+    "ctaTitle": "¿Hablamos?",
+    "ctaSubtitle": "Estoy abierta a nuevas oportunidades y proyectos.",
+    "copied": "Copiado",
+    "downloadCv": "Descargar CV",
+    "navTitle": "Navegación",
+    "socialTitle": "Redes",
+    "infoTitle": "Info",
+    "location": "Buenos Aires, Argentina",
+    "localTime": "Hora local",
+    "backToTop": "Volver arriba",
+    "copyright": "© 2026 Ianina Mia Passalia",
+    "github": "GitHub",
+    "linkedin": "LinkedIn"
   }
 }

@@ -140,9 +140,17 @@ export default function ExperienceTimeline() {
                         )}
                       </span>
                     </div>
-                    <p className="mt-3 max-w-prose text-base leading-relaxed text-foreground/80">
-                      {t(`items.${exp.id}.desc`)}
-                    </p>
+                    {t.has(`items.${exp.id}.bullets`) ? (
+                      <ul className="mt-3 max-w-prose list-disc space-y-1.5 pl-5 text-base leading-relaxed text-foreground/80">
+                        {t.raw(`items.${exp.id}.bullets`).map((bullet) => (
+                          <li key={bullet}>{bullet}</li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="mt-3 max-w-prose text-base leading-relaxed text-foreground/80">
+                        {t(`items.${exp.id}.desc`)}
+                      </p>
+                    )}
                     <p className="mt-3 text-sm text-muted-foreground">
                       {formatTechList(t(`items.${exp.id}.techs`))}
                     </p>

@@ -4,7 +4,7 @@
 
 **Experience** (portfolio) with Persuade CTAs.
 
-Visitor success in ~10 seconds: understand who she is (Frontend Developer), see proof (featured cases), and act (projects / Pulso / contact).
+Visitor success in ~10 seconds: understand who she is (Full Stack Developer), see proof (featured cases), and act (projects / Pulso / contact).
 
 ## Visual world
 
@@ -25,8 +25,7 @@ Dark **0400AM** theme (shadcnthemer; palette only, no shadcn/ui).
 
 ## Identity
 
-- Primary role site-wide: **Frontend Developer** / **Desarrolladora Frontend** (fullstack base: Node / Express). NestJS only in Pulso stack.
-- Do not alternate with “Fullstack” as the headline role.
+- Primary role site-wide: **Full Stack Developer** / **Desarrolladora full stack** (strong frontend focus; backend Node / Express). NestJS only in Pulso stack.
 - Name and contact live in `data/profile.js` + i18n; no hardcoded UI copy in components.
 
 ## Information architecture
