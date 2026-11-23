@@ -81,6 +81,11 @@
   "projects": {
     "title": "Otros proyectos",
     "filterAll": "Todos",
+    "filters": {
+      "webapp": "Apps web",
+      "dashboard": "Dashboards",
+      "website": "Sitios y landings"
+    },
     "demo": "Ver demo",
     "viewScreenshots": "Ver capturas",
     "code": "Ver código",
@@ -165,10 +170,6 @@
     "downloadCv": "Descargar CV"
   },
   "footer": {
-    "ctaTitle": "¿Hablamos?",
-    "ctaSubtitle": "Estoy abierta a nuevas oportunidades y proyectos.",
-    "copied": "Copiado",
-    "downloadCv": "Descargar CV",
     "navTitle": "Navegación",
     "socialTitle": "Redes",
     "infoTitle": "Info",

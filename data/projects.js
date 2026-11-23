@@ -1,7 +1,8 @@
 /** Demo URL for Pulso — change here to update Hero CTA and featured case. */
 export const pulsoDemoUrl = "https://web-steel-five-33.vercel.app";
 
-export const projectFilterTags = ["React", "Vue/Nuxt", "Next", "Landing"];
+/** Work-type filters for "Otros proyectos" (not tech). */
+export const projectFilterTypes = ["webapp", "dashboard", "website"];
 
 export const projects = [
   {
@@ -9,7 +10,7 @@ export const projects = [
     featured: true,
     year: 2025,
     kind: "work",
-    tags: ["Next", "React"],
+    type: "dashboard",
     techs: "Next.js, React, TailwindCSS, Zustand, Docker, Coolify",
     mode: "link",
     href: "https://accounts.reapersquad.online/",
@@ -22,7 +23,7 @@ export const projects = [
     featured: true,
     year: 2026,
     kind: "personal",
-    tags: ["Vue/Nuxt"],
+    type: "webapp",
     techs:
       "Nuxt.js, Pinia, Dexie, NestJS, Prisma, PostgreSQL, PWA, pnpm monorepo",
     mode: "link",
@@ -41,7 +42,7 @@ export const projects = [
     featured: true,
     year: 2025,
     kind: "demo",
-    tags: ["Next", "Landing", "React"],
+    type: "website",
     techs: "Next.js, TailwindCSS, HeroUI, Framer Motion, Zustand, Vercel",
     mode: "link",
     href: "https://dashboard-landing-demo.vercel.app/",
@@ -53,7 +54,7 @@ export const projects = [
   {
     id: "construction-site",
     year: 2026,
-    tags: ["Next", "Landing"],
+    type: "website",
     techs: "Next.js, TailwindCSS, Headless UI, Heroicons, Vercel",
     mode: "link",
     href: "https://construction-site-liard.vercel.app/",
@@ -63,7 +64,7 @@ export const projects = [
   {
     id: "reapersquad",
     year: 2026,
-    tags: ["Next", "Landing"],
+    type: "website",
     techs: "Next.js, React, TailwindCSS, Docker, Coolify",
     mode: "link",
     href: "https://www.reapersquad.online/en",
@@ -75,7 +76,7 @@ export const projects = [
     year: 2025,
     yearLabel: "2024–2025",
     client: "DigiChanges",
-    tags: ["Next", "React"],
+    type: "dashboard",
     techs: "React, Next.js, TailwindCSS",
     mode: "gallery",
     media: { type: "image", src: "/projects/liquidacion/cover.png" },
@@ -91,7 +92,7 @@ export const projects = [
     year: 2025,
     yearLabel: "2024–2025",
     client: "DigiChanges",
-    tags: ["Vue/Nuxt"],
+    type: "webapp",
     techs: "Vue.js, Nuxt.js",
     mode: "link",
     href: "https://x-28.com/",
@@ -101,7 +102,7 @@ export const projects = [
   {
     id: "tour-landing",
     year: 2023,
-    tags: ["Landing"],
+    type: "website",
     techs: "HTML, CSS, JavaScript, Webpack, Netlify",
     mode: "link",
     href: "https://tour-landing-page.netlify.app/",
@@ -111,7 +112,7 @@ export const projects = [
   {
     id: "infinity",
     year: 2022,
-    tags: ["React"],
+    type: "website",
     techs: "React, Redux, CSS, Swiper",
     mode: "link",
     href: "#projects",
@@ -120,7 +121,7 @@ export const projects = [
   {
     id: "l2-rossek",
     year: 2022,
-    tags: ["Landing"],
+    type: "website",
     techs: "HTML, CSS",
     mode: "link",
     href: "https://l2rossek.com/donate/index.html",
@@ -130,7 +131,7 @@ export const projects = [
   {
     id: "share-it",
     year: 2021,
-    tags: ["React"],
+    type: "webapp",
     techs: "React, Node.js, Mercado Pago, Firebase",
     mode: "link",
     href: "https://github.com/henry19ag15/finalproject",

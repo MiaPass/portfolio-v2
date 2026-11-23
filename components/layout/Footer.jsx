@@ -2,18 +2,14 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { ArrowUp, Check, Download } from "lucide";
+import { ArrowUp } from "lucide";
 import { MorphIcon } from "morphicons/react";
-import Magnetic from "@/components/ui/Magnetic";
 import { profile } from "@/data/profile";
 import { gsap, useGSAP, ScrollToPlugin } from "@/lib/gsap";
 import { addMotionMatch, motion, prefersReducedMotion } from "@/lib/motion";
 
 const linkClass =
   "text-sm text-muted-foreground underline-offset-4 transition hover:text-secondary hover:underline hover:decoration-secondary";
-
-const secondaryBtnClass =
-  "inline-flex items-center gap-2 rounded-(--radius) border border-border px-5 py-2.5 text-sm font-semibold text-foreground transition hover:border-foreground/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring";
 
 function BuenosAiresTime({ locale, label }) {
   const [time, setTime] = useState(null);
@@ -51,9 +47,7 @@ export default function Footer() {
   const t = useTranslations();
   const tFooter = useTranslations("footer");
   const locale = useLocale();
-  const [copied, setCopied] = useState(false);
   const nameRef = useRef(null);
-  const cvHref = profile.cv[locale] || profile.cv.es;
 
   const navLinks = [
     { name: t("nav.home"), href: "#welcome" },
@@ -71,16 +65,6 @@ export default function Footer() {
   ];
 
   const nameChars = profile.name.split("");
-
-  async function copyEmail() {
-    try {
-      await navigator.clipboard.writeText(profile.email);
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 2000);
-    } catch {
-      window.location.href = `mailto:${profile.email}`;
-    }
-  }
 
   function scrollToTop() {
     void ScrollToPlugin;
@@ -131,55 +115,8 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-border bg-background">
-      <div className="mx-auto max-w-7xl px-6 pt-20 pb-10 lg:px-8">
-        <div className="max-w-2xl">
-          <h2 className="font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-            {tFooter("ctaTitle")}
-          </h2>
-          <p className="mt-3 text-base text-muted-foreground sm:text-lg">
-            {tFooter("ctaSubtitle")}
-          </p>
-
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <Magnetic
-              as="button"
-              type="button"
-              onClick={copyEmail}
-              className={`inline-flex items-center gap-2 rounded-(--radius) px-5 py-3 text-sm font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring sm:text-base ${
-                copied
-                  ? "border border-border bg-card text-secondary"
-                  : "bg-primary text-primary-foreground hover:brightness-110"
-              }`}
-              aria-live="polite"
-            >
-              {copied ? (
-                <>
-                  <MorphIcon
-                    icon={Check}
-                    size={18}
-                    spring="snappy"
-                    reducedMotion="user"
-                  />
-                  {tFooter("copied")}
-                </>
-              ) : (
-                profile.email
-              )}
-            </Magnetic>
-
-            <a href={cvHref} download className={secondaryBtnClass}>
-              <MorphIcon
-                icon={Download}
-                size={16}
-                spring="smooth"
-                reducedMotion="user"
-              />
-              {tFooter("downloadCv")}
-            </a>
-          </div>
-        </div>
-
-        <div className="mt-16 grid gap-10 border-t border-border pt-12 sm:grid-cols-3">
+      <div className="mx-auto max-w-7xl px-6 pt-16 pb-10 lg:px-8">
+        <div className="grid gap-10 sm:grid-cols-3">
           <div>
             <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-foreground">
               {tFooter("navTitle")}

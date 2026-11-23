@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import { flushSync } from "react-dom";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { otherProjects, projectFilterTags } from "@/data/projects";
+import { otherProjects, projectFilterTypes } from "@/data/projects";
 import ProjectGalleryModal from "@/components/ui/ProjectGalleryModal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { formatTechList } from "@/lib/formatTech";
@@ -136,7 +136,7 @@ export default function Projects() {
   const visibleProjects =
     filter === "all"
       ? otherProjects
-      : otherProjects.filter((project) => project.tags?.includes(filter));
+      : otherProjects.filter((project) => project.type === filter);
 
   function applyFilter(next) {
     if (next === filter) return;
@@ -215,7 +215,7 @@ export default function Projects() {
     { scope },
   );
 
-  const filters = ["all", ...projectFilterTags];
+  const filters = ["all", ...projectFilterTypes];
 
   return (
     <section
@@ -231,20 +231,21 @@ export default function Projects() {
           role="tablist"
           aria-label={t("title")}
         >
-          {filters.map((tag) => {
-            const active = filter === tag;
-            const label = tag === "all" ? t("filterAll") : tag;
+          {filters.map((type) => {
+            const active = filter === type;
+            const label =
+              type === "all" ? t("filterAll") : t(`filters.${type}`);
             return (
               <button
-                key={tag}
+                key={type}
                 type="button"
                 role="tab"
                 aria-selected={active}
-                onClick={() => applyFilter(tag)}
-                className={`border-b-2 pb-1 text-sm font-medium transition-[color,border-color] duration-(--duration-fast) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring motion-reduce:transition-none ${
+                onClick={() => applyFilter(type)}
+                className={`border-b-2 border-transparent bg-transparent pb-1 text-sm font-medium transition-[color,border-color] duration-(--duration-fast) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring motion-reduce:transition-none ${
                   active
-                    ? "border-primary text-foreground"
-                    : "border-transparent text-muted-foreground hover:text-foreground"
+                    ? "border-secondary text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 {label}
