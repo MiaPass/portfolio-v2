@@ -60,15 +60,15 @@ flowchart TB
 
 ## Component map
 
-| Section | `id` | Component | Data | i18n |
-| --- | --- | --- | --- | --- |
-| Hero | `#welcome` | `components/sections/Hero.jsx` | `profile` (availability, pulso link via projects) | `welcome` |
-| Featured | `#featured` | `components/sections/FeaturedProjects.jsx` | `projects` where `featured: true` | `projects` / `featured` / `projects.items.*` |
-| Other | `#projects` | `components/sections/ProjectsGrid.jsx` | non-featured + `tags[]` | `projects` |
-| About | `#about` | `components/sections/About.jsx` | `profile` age helper | `about` |
-| Experience | `#experience` | `components/sections/ExperienceTimeline.jsx` | `experienceIds` | `experience` |
-| Stack | `#stack` | `components/sections/StackMarquee.jsx` | `techs` grouped | `tech` |
-| Contact | `#contact` | `components/sections/Contact.jsx` | `profile` email, socials, cv paths | `contact` |
+| Section    | `id`          | Component                                    | Data                                              | i18n                                         |
+| ---------- | ------------- | -------------------------------------------- | ------------------------------------------------- | -------------------------------------------- |
+| Hero       | `#welcome`    | `components/sections/Hero.jsx`               | `profile` (availability, pulso link via projects) | `welcome`                                    |
+| Featured   | `#featured`   | `components/sections/FeaturedProjects.jsx`   | `projects` where `featured: true`                 | `projects` / `featured` / `projects.items.*` |
+| Other      | `#projects`   | `components/sections/ProjectsGrid.jsx`       | non-featured + `tags[]`                           | `projects`                                   |
+| About      | `#about`      | `components/sections/About.jsx`              | `profile` age helper                              | `about`                                      |
+| Experience | `#experience` | `components/sections/ExperienceTimeline.jsx` | `experienceIds`                                   | `experience`                                 |
+| Stack      | `#stack`      | `components/sections/StackMarquee.jsx`       | `techs` grouped                                   | `tech`                                       |
+| Contact    | `#contact`    | `components/sections/Contact.jsx`            | `profile` email, socials, cv paths                | `contact`                                    |
 
 Shared:
 
@@ -80,8 +80,8 @@ Shared:
 
 ## Data / i18n contracts
 
-**Always:** structure, URLs, stacks, tags, media paths → `data/*.js`.  
-**Always:** user-facing strings → `messages/{es,en}.json`.  
+**Always:** structure, URLs, stacks, tags, media paths → `data/*.js`.
+**Always:** user-facing strings → `messages/{es,en}.json`.
 **Never:** hardcoded role, headlines, CTAs, or case-study copy in JSX.
 
 ### `data/profile.js`
@@ -91,7 +91,8 @@ Shared:
 ### `data/projects.js`
 
 - `projects[]`: `id`, `featured?`, `tags[]`, `techs` (display string or list), `mode` (`link` | `gallery`), `href?`, `demoUrl?`, `repoUrl?`, `external?`, `media`, `gallery?`
-- Featured order: Pulso → ReaperSquad accounts → Settlement (`liquidacion`)
+- Featured order: ReaperSquad accounts → Pulso → Dashboard landing
+- `mode` also supports `static` (no link/gallery; typographic placeholder media)
 - `techs[]` for marquee: `{ name, logo, path, group: "frontend" | "backend" | "tools" }`
 - `experienceIds[]`: `{ id, href?, external? }` — copy under `experience.items.*`
 
@@ -103,15 +104,15 @@ Case-study narrative (`problem`, `whatIDid`, `decisions[3]`) lives under `projec
 
 ## Motion
 
-transitions.dev tokens in `:root` (`--duration-*`, `--ease-*`, `--scale-*`).  
+transitions.dev tokens in `:root` (`--duration-*`, `--ease-*`, `--scale-*`).
 GSAP reads seconds via `lib/motion.js`. Modal uses `.t-modal` open/close recipe.
 
 ### `prefers-reduced-motion`
 
-| Preference | Behavior |
-| --- | --- |
-| **no-preference** | Full timelines, SplitText word stagger, ScrollTrigger reveals/parallax, Flip filters, tilt, cursor glow, magnetic buttons, marquee |
-| **reduce** | Short opacity fades only (`motion.quick` / `--duration-quick`); no parallax, tilt, glow-follow, Flip layout morph, SplitText stagger, or pulse loops |
+| Preference        | Behavior                                                                                                                                             |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **no-preference** | Full timelines, SplitText word stagger, ScrollTrigger reveals/parallax, Flip filters, tilt, cursor glow, magnetic buttons, marquee                   |
+| **reduce**        | Short opacity fades only (`motion.quick` / `--duration-quick`); no parallax, tilt, glow-follow, Flip layout morph, SplitText stagger, or pulse loops |
 
 Helpers: `prefersReducedMotion()`, `addMotionMatch(mm, { full, reduced })` in `lib/motion.js`.
 

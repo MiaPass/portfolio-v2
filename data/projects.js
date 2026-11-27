@@ -87,14 +87,8 @@ export const projects = [
     client: "DigiChanges",
     type: "dashboard",
     techs: "React, Next.js, TailwindCSS",
-    mode: "gallery",
-    media: { type: "image", src: "/projects/liquidacion/cover.png" },
-    gallery: [
-      "/projects/liquidacion/cover.png",
-      "/projects/liquidacion/1.png",
-      "/projects/liquidacion/2.png",
-      "/projects/liquidacion/3.png",
-    ],
+    mode: "static",
+    media: { type: "placeholder" },
   },
   {
     id: "x28",

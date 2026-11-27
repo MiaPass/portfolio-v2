@@ -58,7 +58,7 @@
         "role": "Frontend Developer",
         "bullets": [
           "Desarrollo del sitio institucional de la empresa.",
-          "Panel de cuentas: autenticación y gestión de usuarios.",
+          "Panel de cuentas: autenticación y gestión de usuarios, créditos, donaciones e integración de pasarelas de pago.",
           "Deploy con Docker y Coolify.",
           "Propuse incorporar skills de IA al flujo de desarrollo del equipo."
         ],
@@ -66,13 +66,16 @@
       },
       "digichanges": {
         "title": "DigiChanges",
-        "role": "Frontend Developer",
-        "desc": "Frontend en equipo: paneles y sitios de cliente con UX clara (Vue/Nuxt, Next/React).",
-        "techs": "Next.js, React, Vue.js, Nuxt.js, TailwindCSS, Node.js"
+        "role": "Full Stack Developer",
+        "bullets": [
+          "Frontend en equipo: paneles y sitios de cliente con UX clara (Vue/Nuxt, Next/React).",
+          "Colaboré en el backend de x28 con Node.js y MongoDB."
+        ],
+        "techs": "Next.js, React, Vue.js, Nuxt.js, TailwindCSS, Node.js, MongoDB"
       },
       "freelancer": {
         "title": "Freelance",
-        "role": "Frontend Developer",
+        "role": "Full Stack Developer",
         "desc": "Desarrollo de sitios y aplicaciones web para clientes, con HTML, CSS, JavaScript, Tailwind, React, Node.js, Express, MongoDB y Supabase. Algunos proyectos están bajo confidencialidad.",
         "techs": "HTML, CSS, JavaScript, TailwindCSS, React, Node.js, Express, MongoDB, Supabase"
       }
@@ -107,9 +110,9 @@
       },
       "reapersquad-accounts": {
         "name": "Panel de cuentas",
-        "desc": "Panel de cuentas para ReaperSquad: autenticación y gestión de usuarios. Deploy en Coolify con Docker.",
-        "problem": "Gestionar cuentas y acceso de usuarios de ReaperSquad con un panel admin claro y desplegable.",
-        "whatIDid": "Implementé el panel de autenticación y gestión de usuarios en Next.js, con estado en Zustand y deploy Docker/Coolify.",
+        "desc": "Panel de cuentas para ReaperSquad: autenticación y gestión de usuarios, créditos, donaciones e integración de pasarelas de pago. Deploy en Coolify con Docker.",
+        "problem": "Gestionar cuentas y acceso de usuarios de ReaperSquad, además de créditos, donaciones y pasarelas de pago, con un panel admin claro y desplegable.",
+        "whatIDid": "Implementé el panel de autenticación y gestión de usuarios en Next.js, con créditos, donaciones e integración de pasarelas de pago, estado en Zustand y deploy Docker/Coolify.",
         "decisions": [
           "Next.js + React para UI admin rápida de iterar.",
           "Zustand para estado de sesión y flujos de cuenta.",
@@ -126,7 +129,7 @@
       },
       "liquidacion": {
         "name": "Panel de liquidación",
-        "desc": "Sistema interno de liquidación desarrollado en DigiChanges."
+        "desc": "Sistema interno de liquidación desarrollado en DigiChanges. Proyecto bajo confidencialidad: sin capturas."
       },
       "infinity": {
         "name": "Infinity",
